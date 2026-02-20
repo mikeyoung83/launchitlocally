@@ -9,7 +9,7 @@
 import type { SocialLinks, LegalConfig } from '../lib/types';
 
 /** Site name displayed in header, footer, and meta tags */
-export const name = import.meta.env.SITE_NAME || 'Virex';
+export const name = import.meta.env.SITE_NAME || 'Launch It Locally';
 
 /** Site description for SEO and meta tags */
 export const description =
