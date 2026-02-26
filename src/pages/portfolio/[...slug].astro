@@ -1,0 +1,86 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import readingTime from "reading-time";
+
+// 1. Generate paths for all entries
+export async function getStaticPaths() {
+    const portfolioEntries = await getCollection("portfolio");
+    return portfolioEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { entry },
+    }));
+}
+
+// 2. Get the specific entry from props
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+// 3. Logic for Reading Time and Dates
+const stats = readingTime(entry.body);
+const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+});
+---
+
+<MainLayout title={`${entry.data.title} | Case Study`}>
+    <div class="min-h-screen bg-base-100">
+        <header class="max-w-4xl mx-auto pt-20 px-6">
+            <div
+                class="flex items-center gap-2 text-primary font-bold mb-4 uppercase tracking-widest text-sm"
+            >
+                <span>{entry.data.client}</span>
+                <span>•</span>
+                <span>{formattedDate}</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-8 italic">
+                {entry.data.title}
+            </h1>
+
+            <div
+                class="flex flex-wrap items-center gap-6 pb-12 border-b border-base-300"
+            >
+                <div class="flex items-center gap-2">
+                    <span class="text-sm opacity-60 italic"
+                        >⏱️ {stats.text}</span
+                    >
+                </div>
+                {
+                    entry.data.tags.map((tag) => (
+                        <div class="badge badge-ghost px-4 py-3">{tag}</div>
+                    ))
+                }
+            </div>
+        </header>
+
+        <main class="max-w-4xl mx-auto px-6 py-12">
+            <img
+                src={entry.data.image}
+                alt={entry.data.title}
+                class="w-full aspect-video object-cover rounded-3xl shadow-2xl mb-16"
+            />
+
+            <article
+                class="prose prose-lg prose-headings:font-serif max-w-none"
+            >
+                <Content />
+            </article>
+
+            {
+                entry.data.updatedDate && (
+                    <div class="mt-20 pt-8 border-t border-base-200 text-sm italic opacity-50">
+                        Last updated on{" "}
+                        {entry.data.updatedDate.toLocaleDateString()}
+                    </div>
+                )
+            }
+
+            <div class="mt-20 text-center">
+                <a href="/portfolio" class="btn btn-outline"
+                    >← Back to Projects</a
+                >
+            </div>
+        </main>
+    </div>
+</MainLayout>
