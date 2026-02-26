@@ -1,23 +1,30 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import readingTime from "reading-time";
 
 // 1. Generate paths for all entries
 export async function getStaticPaths() {
     const portfolioEntries = await getCollection("portfolio");
-    return portfolioEntries.map((entry) => ({
+    return portfolioEntries.map((entry: CollectionEntry<"portfolio">) => ({
         params: { slug: entry.slug },
         props: { entry },
     }));
 }
 
-// 2. Get the specific entry from props
+// 2. Define exactly what the Props are
+interface Props {
+    entry: CollectionEntry<"portfolio">;
+}
+
+// 3. Get the specific entry from props
 const { entry } = Astro.props;
+
+// 4. Render Content
 const { Content } = await entry.render();
 
-// 3. Logic for Reading Time and Dates
-const stats = readingTime(entry.body);
+// 5. Logic for Reading Time and Dates
+const stats = readingTime(entry.body || "");
 const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
@@ -47,7 +54,8 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
                     >
                 </div>
                 {
-                    entry.data.tags.map((tag) => (
+                    /* FIXED: Added : string to the tag parameter below */
+                    entry.data.tags.map((tag: string) => (
                         <div class="badge badge-ghost px-4 py-3">{tag}</div>
                     ))
                 }

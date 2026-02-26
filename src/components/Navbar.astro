@@ -1,11 +1,16 @@
 ---
 // src/components/Navbar.astro
+import Logo from "./Logo.astro";
 ---
 
 <div class="navbar bg-base-100 border-b border-base-300 px-4 sticky top-0 z-50">
     <div class="flex-1">
-        <a href="/" class="btn btn-ghost text-xl tracking-tighter">
-            LaunchItLocally
+        <a
+            href="/"
+            class="flex items-center gap-2"
+            aria-label="LaunchItLocally Home"
+        >
+            <Logo />
         </a>
     </div>
 
@@ -62,7 +67,7 @@
             </div>
             <ul
                 tabindex="0"
-                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 border border-base-300"
+                class="menu menu-sm dropdown-content mt-3 z-1 p-2 shadow bg-base-100 rounded-box w-52 border border-base-300"
             >
                 <li><a href="/">Home</a></li>
                 <li><a href="/services">Services</a></li>
@@ -74,17 +79,11 @@
 </div>
 
 <script>
-    /**
-     * Active Link Logic
-     * Finds the link that matches the current URL and adds the 'active' class.
-     */
     const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll(".navbar a");
 
     navLinks.forEach((link) => {
         const href = link.getAttribute("href");
-
-        // Add this 'if (!href) return;' to skip links without an href
         if (!href) return;
 
         if (
@@ -96,10 +95,6 @@
         }
     });
 
-    /**
-     * Theme Toggle Logic (Persistence)
-     * This ensures the toggle state matches the data-theme attribute on load.
-     */
     const themeToggle = document.querySelector(
         ".theme-controller",
     ) as HTMLInputElement;

@@ -1,9 +1,10 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 
 // Fetch all entries from the 'portfolio' collection
-const projects = await getCollection("portfolio");
+const projects: CollectionEntry<"portfolio">[] =
+    await getCollection("portfolio");
 
 // Sort by date (newest first)
 const sortedProjects = projects.sort(
@@ -50,7 +51,8 @@ const sortedProjects = projects.sort(
                                     {project.data.description}
                                 </p>
                                 <div class="card-actions justify-end mt-4">
-                                    {project.data.tags.map((tag) => (
+                                    {/* FIXED: Added : string to the tag parameter below */}
+                                    {project.data.tags.map((tag: string) => (
                                         <span class="text-xs uppercase tracking-widest font-bold text-primary">
                                             {tag}
                                         </span>
