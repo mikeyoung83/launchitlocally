@@ -1,0 +1,64 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Contact Us">
+    <div class="max-w-2xl mx-auto p-10">
+        <div class="card bg-base-200 shadow-2xl p-8">
+            <h2 class="text-3xl font-bold mb-6">Let's Talk Shop</h2>
+
+            <form
+                name="agency-contact"
+                method="POST"
+                data-netlify="true"
+                action="/success"
+                class="space-y-4"
+            >
+                <input type="hidden" name="form-name" value="agency-contact" />
+
+                <div class="form-control">
+                    <label class="label"
+                        ><span class="label-text">Name</span></label
+                    >
+                    <input
+                        type="text"
+                        name="name"
+                        required
+                        placeholder="John Doe"
+                        class="input input-bordered"
+                    />
+                </div>
+
+                <div class="form-control">
+                    <label class="label"
+                        ><span class="label-text">Email</span></label
+                    >
+                    <input
+                        type="email"
+                        name="email"
+                        required
+                        placeholder="john@example.com"
+                        class="input input-bordered"
+                    />
+                </div>
+
+                <div class="form-control">
+                    <label class="label"
+                        ><span class="label-text">Project Details</span></label
+                    >
+                    <textarea
+                        name="message"
+                        required
+                        class="textarea textarea-bordered h-24"
+                        placeholder="Tell us about your project..."></textarea>
+                </div>
+
+                <button
+                    type="submit"
+                    class="btn btn-primary btn-block text-white mt-6"
+                    >Send Message</button
+                >
+            </form>
+        </div>
+    </div>
+</MainLayout>

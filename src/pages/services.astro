@@ -1,0 +1,47 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const services = [
+    {
+        title: "Web Design",
+        desc: "Beautiful, custom UI/UX designs.",
+        icon: "🎨",
+    },
+    {
+        title: "Development",
+        desc: "Fast, SEO-optimized Astro sites.",
+        icon: "🚀",
+    },
+    {
+        title: "E-commerce",
+        desc: "Scalable online stores that sell.",
+        icon: "🛒",
+    },
+];
+---
+
+<MainLayout title="Our Services">
+    <section class="p-10 max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-10">What We Do</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {
+                services.map((service) => (
+                    <div class="card bg-base-100 shadow-xl border border-base-200 hover:border-primary transition-colors">
+                        <div class="card-body items-center text-center">
+                            <span class="text-5xl mb-4">{service.icon}</span>
+                            <h3 class="card-title font-bold">
+                                {service.title}
+                            </h3>
+                            <p>{service.desc}</p>
+                            <div class="card-actions mt-4">
+                                <button class="btn btn-sm btn-ghost">
+                                    Learn More
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+</MainLayout>
