@@ -1,17 +1,39 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<MainLayout title="Creative Digital Agency | Home">
+    <div class="hero min-h-[70vh] bg-base-200">
+        <div class="hero-content text-center">
+            <div class="max-w-md">
+                <h1 class="text-5xl font-bold">
+                    We build websites that <span class="text-primary"
+                        >convert.</span>
+                </h1>
+                <p class="py-6">
+                    Modern, high-performance web design for forward-thinking
+                    brands.
+                </p>
+                <div class="flex gap-2 justify-center">
+                    <a href="/services" class="btn btn-primary text-white"
+                        >View Our Work</a
+                    >
+                    <a href="/contact" class="btn btn-outline">Get a Quote</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center -mt-10">
+        <div class="stats shadow bg-base-100 border border-base-300">
+            <div class="stat">
+                <div class="stat-title">Projects Done</div>
+                <div class="stat-value text-primary">150+</div>
+            </div>
+            <div class="stat">
+                <div class="stat-title">Client Rating</div>
+                <div class="stat-value text-secondary">4.9/5</div>
+            </div>
+        </div>
+    </div>
+</MainLayout>
