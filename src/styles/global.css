@@ -1,2 +1,15 @@
 @import "tailwindcss";
 @plugin "daisyui";
+
+/* 1. Reset & Base */
+body {
+    font-family:
+        system-ui,
+        -apple-system,
+        sans-serif;
+    color: #1a1a1a;
+}
+
+.hero-content {
+    max-width: 90rem;
+}
