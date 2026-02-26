@@ -29,7 +29,12 @@ import Logo from "./Logo.astro";
         </ul>
 
         <label class="swap swap-rotate btn btn-ghost btn-circle">
-            <input type="checkbox" class="theme-controller" value="dark" />
+            <input
+                type="checkbox"
+                class="theme-controller"
+                value="dark"
+                aria-labelledby="theme toggle"
+            />
 
             <svg
                 class="swap-off fill-current w-5 h-5"
@@ -51,7 +56,12 @@ import Logo from "./Logo.astro";
         </label>
 
         <div class="dropdown dropdown-end md:hidden">
-            <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+            <div
+                tabindex="0"
+                role="button"
+                class="btn btn-ghost btn-circle"
+                aria-label="Mobile Menu"
+            >
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     class="h-5 w-5"
