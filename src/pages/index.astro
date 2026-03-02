@@ -3,40 +3,60 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout title="Creative Digital Agency | Home">
-    <div class="hero py-8 lg:py-24 bg-base-200">
-        <div class="hero-content text-center">
-            <div class="xl:max-w-3/4 lg:max-w-7/8 md:max-w-3/4 sm:max-w-full">
-                <h1 class="font-bold text-4xl md:text-5xl lg:text-8xl">
+    <div class="relative isolate overflow-hidden">
+        <div
+            class="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40"
+        >
+            <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
+                <div class="mt-24 sm:mt-32 lg:mt-16">
+                    <span
+                        class="rounded-full bg-secondary/20 px-3 py-1 text-sm/6 font-semibold text-primary"
+                        >Custom Designs, Custom Coded
+                    </span>
+                </div>
+                <h1
+                    class="mt-10 mb-4 text-5xl font-semibold tracking-tight text-pretty sm:text-7xl"
+                >
                     Your Business
                     <span class="text-primary">Deserves Better</span>
                     Than a Template.
                 </h1>
+                <p class="mb-4 text-sm text-pretty sm:text-xl/8">
+                    We build custom, <strong>high-performing websites</strong> from
+                    the ground up—no AI shortcuts, no slow WordPress plugins.
+                </p>
 
-                <div class="flex justify-center">
-                    <p
-                        class="py-6 xl:max-w-full lg:max-w-7/8 md:max-w-3/4 sm:max-w-full"
-                    >
-                        Most websites are built on bloated, 10-year-old tech
-                        that frustrates business owners and kills Google
-                        rankings. <br /><strong class="pt-1 block"
-                            >We build custom, high-performing websites from the
-                            ground up—no AI shortcuts, no slow WordPress
-                            plugins.</strong
-                        >
-                    </p>
-                </div>
-                <div class="flex justify-center pb-12">
-                    <h2 class="text-3xl font-bold tracking-tighter">
-                        Just <span class="text-primary">pure speed</span> and professional
-                        results.
-                    </h2>
-                </div>
+                <h2 class="text-3xl font-bold tracking-tighter">
+                    Just <span class="text-primary">pure speed</span> and professional
+                    results.
+                </h2>
 
-                <div class="flex gap-2 justify-center">
+                <div class="mt-10 flex items-center gap-x-6">
                     <a href="/contact" class="btn btn-primary text-white"
                         >Get Started</a
                     >
-                    <a href="/services" class="btn btn-outline">Services</a>
+                    <a
+                        href="services"
+                        class="text-sm/6 font-semibold text-gray-900"
+                        >Learn more <span aria-hidden="true">→</span></a
+                    >
+                </div>
+            </div>
+            <div
+                class="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none xl:ml-32"
+            >
+                <div class="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+                    <div
+                        class="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-gray-900/10 ring-inset lg:-m-4 lg:rounded-2xl lg:p-4"
+                    >
+                        <img
+                            src="https://tailwindui.com/plus-assets/img/component-images/project-app-screenshot.png"
+                            alt="App screenshot"
+                            width="2432"
+                            height="1442"
+                            class="w-[76rem] rounded-md ring-1 shadow-2xl ring-gray-900/10"
+                        />
+                    </div>
                 </div>
             </div>
         </div>
