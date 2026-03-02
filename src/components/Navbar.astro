@@ -110,13 +110,13 @@ import Logo from "./Logo.astro";
     ) as HTMLInputElement;
     const currentTheme = document.documentElement.getAttribute("data-theme");
 
-    if (themeToggle && currentTheme === "dark") {
+    if (themeToggle && currentTheme === "business") {
         themeToggle.checked = true;
     }
 
     themeToggle?.addEventListener("change", (e) => {
         const target = e.target as HTMLInputElement;
-        const newTheme = target.checked ? "dark" : "light";
+        const newTheme = target.checked ? "business" : "corporate";
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
     });
