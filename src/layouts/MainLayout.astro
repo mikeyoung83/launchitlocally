@@ -1,8 +1,8 @@
 ---
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
 const { title } = Astro.props;
-const currentYear = new Date().getFullYear();
 ---
 
 <html lang="en" data-theme="corporate">
@@ -21,8 +21,6 @@ const currentYear = new Date().getFullYear();
         <main class="grow">
             <slot />
         </main>
-        <footer class="footer footer-center p-4 bg-base-300 text-base-content">
-            <p>Copyright © {currentYear} - All right reserved</p>
-        </footer>
+        <Footer />
     </body>
 </html>
