@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import myImage from "../assets/performance_1.jpg";
 ---
 
 <MainLayout title="Creative Digital Agency | Home">
@@ -21,7 +23,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                     <span class="text-primary">Deserves Better</span>
                     Than a Template.
                 </h1>
-                <p class="mb-4 text-sm text-pretty sm:text-lg/8">
+                <p class="mb-4 text-sm text-pretty sm:text-xl/8">
                     We build custom, <strong>high-performing websites</strong> from
                     the ground up—no AI shortcuts, no slow WordPress plugins.
                 </p>
@@ -74,7 +76,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                 >
                     You Run Your Business. <br />We’ll Run Your Web Presence.
                 </p>
-                <p class="mt-6 text-lg/8">
+                <p class="mt-6 text-xl/8">
                     Stop wasting your weekends fighting with broken plugins and
                     slow templates. <br />When you partner with LaunchItLocally,
                     your website becomes our priority. We handle the technical
@@ -114,11 +116,11 @@ import MainLayout from "../layouts/MainLayout.astro";
                         </dt>
                         <dd class="mt-4 flex flex-auto flex-col text-base/7">
                             <p class="flex-auto">
-                                In 2026, your "front door" is a smartphone
-                                screen. We build for the thumb first, ensuring
-                                your site feels like a native app. No awkward
-                                zooming—just a seamless experience that
-                                converts.
+                                In {new Date().getFullYear()}, your "front door"
+                                is a smartphone screen. We build for the thumb
+                                first, ensuring your site feels like a native
+                                app. No awkward zooming—just a seamless
+                                experience that converts.
                             </p>
                             <p class="mt-6">
                                 <a
@@ -226,22 +228,15 @@ import MainLayout from "../layouts/MainLayout.astro";
                     Speed is a Business Strategy, Not a Technical Detail.
                 </h1>
                 <p class="mt-6 text-xl/8 text-balance">
-                    In 2026, your customers aren't just looking for
-                    information—they’re looking for it now. Google has made it
-                    clear: <b>speed is a primary ranking factor</b> for local search.
-                    If your site takes more than three seconds to load, half of your
-                    visitors have already clicked away to a competitor.
-                </p>
-                <p class="mt-2 text-xl/8 text-balance">
-                    We don’t just build "pretty" websites. We build
-                    high-velocity assets designed to capture leads before they
-                    lose interest. By stripping away the bloat of traditional
-                    platforms, we ensure your business is the fastest in your
-                    neighborhood.
+                    In {new Date().getFullYear()}, your customers aren't just
+                    looking for information—they’re looking for it now. Google
+                    has made it clear: <b>speed is a primary ranking factor</b> for
+                    local search. If your site takes more than three seconds to load,
+                    half of your visitors have already clicked away to a competitor.
                 </p>
             </div>
             <section
-                class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16"
+                class="mt-8 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16"
             >
                 <div class="lg:pr-8">
                     <p class="text-base/7">
@@ -267,6 +262,14 @@ import MainLayout from "../layouts/MainLayout.astro";
                         custom-coded approach means your site won't "slow down" over
                         time like a WordPress site weighed down by old plugins.
                     </p>
+
+                    <p class="mt-8 text-xl/8 text-balance">
+                        <b>We don’t just build "pretty" websites.</b>
+                        <br /> We build high-velocity assets designed to capture leads
+                        before they lose interest. By stripping away the bloat of
+                        traditional platforms,your website is the fastest in your
+                        neighborhood.
+                    </p>
                 </div>
                 <div class="pt-16 lg:row-span-2 lg:-mr-16 xl:mr-auto">
                     <div
@@ -275,10 +278,9 @@ import MainLayout from "../layouts/MainLayout.astro";
                         <div
                             class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
                         >
-                            <img
-                                alt=""
-                                src="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
-                                class="block size-full object-cover"
+                            <Image
+                                src={myImage}
+                                alt="A description of my image."
                             />
                         </div>
                         <div
@@ -316,41 +318,21 @@ import MainLayout from "../layouts/MainLayout.astro";
                         class="mt-6 grid grid-cols-1 gap-x-8 gap-y-4 sm:grid-cols-2"
                     >
                         <div
-                            class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4"
-                        >
-                            <dt class="text-sm/6">Raised</dt>
-                            <dd
-                                class="order-first text-6xl font-semibold tracking-tight"
-                            >
-                                $<span>150</span>M
-                            </dd>
-                        </div>
-                        <div
-                            class="flex flex-col gap-y-2 border-b border-dotted border-gray-200 pb-4"
-                        >
-                            <dt class="text-sm/6">Companies</dt>
-                            <dd
-                                class="order-first text-6xl font-semibold tracking-tight"
-                            >
-                                <span>30</span>K
-                            </dd>
-                        </div>
-                        <div
                             class="flex flex-col gap-y-2 max-sm:border-b max-sm:border-dotted max-sm:border-gray-200 max-sm:pb-4"
                         >
-                            <dt class="text-sm/6">Deals Closed</dt>
+                            <dt class="text-sm/6">Google Page Speed Score</dt>
                             <dd
                                 class="order-first text-6xl font-semibold tracking-tight"
                             >
-                                <span>1.5</span>M
+                                <span>100</span>
                             </dd>
                         </div>
                         <div class="flex flex-col gap-y-2">
-                            <dt class="text-sm/6">Leads Generated</dt>
+                            <dt class="text-sm/6">Satisfaction Guaranteed</dt>
                             <dd
                                 class="order-first text-6xl font-semibold tracking-tight"
                             >
-                                <span>200</span>M
+                                <span>100</span>%
                             </dd>
                         </div>
                     </dl>
