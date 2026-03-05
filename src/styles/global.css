@@ -23,6 +23,10 @@
     --color-primary: oklch(0.5498 0.2 265.01);
 }
 
+body {
+    scrollbar-gutter: stable;
+}
+
 .hero-content {
     max-width: 90rem;
 }
