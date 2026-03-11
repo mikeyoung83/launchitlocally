@@ -2,19 +2,17 @@
 import "../styles/global.css";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
 <html lang="en" data-theme="corporate">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
-        <meta
-            name="description"
-            content="A concise summary of the content on your web page, typically between 50-160 characters long."
-        />
-
-        <title>{title}</title>
+        <title>{title} | LaunchItLocally</title>
+        <meta name="description" content={description} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
     </head>
     <body class="min-h-screen flex flex-col">
         <Navbar />

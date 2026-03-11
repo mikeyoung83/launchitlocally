@@ -2,9 +2,13 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import performance_1 from "../assets/performance_1.jpg";
+import mike_young from "../assets/mike-young.jpg";
 ---
 
-<MainLayout title="Creative Digital Agency | Home">
+<MainLayout
+    title="Home"
+    description="Custom-coded, high-performance websites for local businesses. No bloat, just speed."
+>
     <div class="relative isolate overflow-hidden">
         <div
             class="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40"
@@ -93,7 +97,7 @@ import performance_1 from "../assets/performance_1.jpg";
                 >
                     <div class="flex flex-col">
                         <dt
-                            class="flex items-center gap-x-3 text-base/7 font-semibold text-accent"
+                            class="flex items-center gap-x-3 text-base/7 font-semibold"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +105,7 @@ import performance_1 from "../assets/performance_1.jpg";
                                 viewBox="0 0 24 24"
                                 stroke-width="1.5"
                                 stroke="currentColor"
-                                class="size-6"
+                                class="size-8 text-accent"
                             >
                                 <path
                                     stroke-linecap="round"
@@ -122,7 +126,7 @@ import performance_1 from "../assets/performance_1.jpg";
                             </p>
                             <p class="mt-6">
                                 <a
-                                    href="#"
+                                    href="services"
                                     class="text-sm/6 font-semibold text-primary"
                                     >Learn more <span aria-hidden="true">→</span
                                     ></a
@@ -132,7 +136,7 @@ import performance_1 from "../assets/performance_1.jpg";
                     </div>
                     <div class="flex flex-col">
                         <dt
-                            class="flex items-center gap-x-3 text-base/7 font-semibold text-accent"
+                            class="flex items-center gap-x-3 text-base/7 font-semibold"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -140,7 +144,7 @@ import performance_1 from "../assets/performance_1.jpg";
                                 viewBox="0 0 24 24"
                                 stroke-width="1.5"
                                 stroke="currentColor"
-                                class="size-6"
+                                class="size-8 text-accent"
                             >
                                 <path
                                     stroke-linecap="round"
@@ -161,7 +165,7 @@ import performance_1 from "../assets/performance_1.jpg";
                             </p>
                             <p class="mt-6">
                                 <a
-                                    href="#"
+                                    href="services"
                                     class="text-sm/6 font-semibold text-primary"
                                     >Learn more <span aria-hidden="true">→</span
                                     ></a
@@ -171,7 +175,7 @@ import performance_1 from "../assets/performance_1.jpg";
                     </div>
                     <div class="flex flex-col">
                         <dt
-                            class="flex items-center gap-x-3 text-base/7 font-semibold text-accent"
+                            class="flex items-center gap-x-3 text-base/7 font-semibold"
                         >
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
@@ -179,7 +183,7 @@ import performance_1 from "../assets/performance_1.jpg";
                                 viewBox="0 0 24 24"
                                 stroke-width="1.5"
                                 stroke="currentColor"
-                                class="size-6"
+                                class="size-8 text-accent"
                             >
                                 <path
                                     stroke-linecap="round"
@@ -200,7 +204,7 @@ import performance_1 from "../assets/performance_1.jpg";
                             </p>
                             <p class="mt-6">
                                 <a
-                                    href="#"
+                                    href="services"
                                     class="text-sm/6 font-semibold text-primary"
                                     >Learn more <span aria-hidden="true">→</span
                                     ></a
@@ -214,6 +218,154 @@ import performance_1 from "../assets/performance_1.jpg";
     </section>
 
     <section class="overflow-hidden py-24 sm:py-32">
+        <div class="mx-auto max-w-7xl px-6 lg:px-8">
+            <div
+                class="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-2"
+            >
+                <div class="lg:ml-auto lg:pt-4 lg:pl-4 flex items-center">
+                    <div class="lg:max-w-lg">
+                        <span
+                            class="rounded-full bg-secondary/10 px-3 py-1 text-sm/6 font-semibold text-primary"
+                            >Services Offered
+                        </span>
+                        <p
+                            class="mt-6 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
+                        >
+                            Websites Starting at $0 Down and $199/month
+                        </p>
+                        <p class="mt-6 text-xl/8">
+                            Get a custom-coded, 5-page site with $0 down and an
+                            all-inclusive monthly plan. Our 12-month agreement
+                            ensures your site stays optimized with 24/7 support,
+                            managed hosting, and lifetime performance updates
+                            included.
+                        </p>
+                        <dl
+                            class="mt-10 max-w-xl space-y-8 text-base/7 lg:max-w-none"
+                        >
+                            <div class="relative pl-9">
+                                <dt class="inline font-semibold">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="absolute top-1 left-1 size-6 text-accent"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L6.832 19.82a4.5 4.5 0 0 1-1.897 1.13l-2.685.8.8-2.685a4.5 4.5 0 0 1 1.13-1.897L16.863 4.487Zm0 0L19.5 7.125"
+                                        ></path>
+                                    </svg>
+
+                                    Custom Design
+                                </dt>
+                                <dd class="inline">
+                                    Page layouts and designs are made in-house,
+                                    which allows for unlimited customization.
+                                </dd>
+                            </div>
+                            <div class="relative pl-9">
+                                <dt class="inline font-semibold">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="absolute top-1 left-1 size-6 text-accent"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"
+                                        ></path>
+                                    </svg>
+
+                                    100% Secure
+                                </dt>
+                                <dd class="inline">
+                                    Our sites ship with pure, static HTML,
+                                    meaning there's no outdated plugins that
+                                    allow hacking.
+                                </dd>
+                            </div>
+                            <div class="relative pl-9">
+                                <dt class="inline font-semibold">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="absolute top-1 left-1 size-6 text-accent"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0 0 20.25 18V6A2.25 2.25 0 0 0 18 3.75H6A2.25 2.25 0 0 0 3.75 6v12A2.25 2.25 0 0 0 6 20.25Z"
+                                        ></path>
+                                    </svg>
+
+                                    100 PageSpeed Scores
+                                </dt>
+                                <dd class="inline">
+                                    Zero bload. Zero waste. Our sites and lean
+                                    and load instantly, which means near perfect
+                                    Google PageSpeed Scores.
+                                </dd>
+                            </div>
+                            <div class="relative pl-9">
+                                <dt class="inline font-semibold">
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        fill="none"
+                                        viewBox="0 0 24 24"
+                                        stroke-width="1.5"
+                                        stroke="currentColor"
+                                        class="absolute top-1 left-1 size-6 text-accent"
+                                    >
+                                        <path
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                            d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"
+                                        ></path>
+                                    </svg>
+
+                                    We're In Your Corner
+                                </dt>
+                                <dd class="inline">
+                                    Updates, tweaks, and fixes are done quickly
+                                    and efficiently. We're here to help you
+                                    succeed.
+                                </dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+                <div
+                    class="flex relative items-center justify-end lg:order-first"
+                >
+                    <Image
+                        loading="lazy"
+                        src={mike_young}
+                        alt="Mike Young"
+                        class="w-[48rem] max-h-fit max-w-none rounded-xl ring-1 shadow-xl ring-gray-400/10 sm:w-[37rem]"
+                    />
+                    <div
+                        class="absolute bottom-5 right-5 bg-base-100 z-10 p-6 rounded-2xl"
+                    >
+                        <span class="block font-bold">Mike Young</span>Owner,
+                        Developer
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="overflow-hidden bg-secondary/10 py-24 sm:py-32">
         <div class="mx-auto max-w-2xl px-6 lg:max-w-7xl lg:px-8">
             <div class="max-w-4xl">
                 <span
@@ -233,7 +385,7 @@ import performance_1 from "../assets/performance_1.jpg";
                     half of your visitors have already clicked away to a competitor.
                 </p>
             </div>
-            <section
+            <div
                 class="mt-20 grid grid-cols-1 lg:grid-cols-2 lg:gap-x-8 lg:gap-y-16"
             >
                 <div class="lg:pr-8">
@@ -336,13 +488,11 @@ import performance_1 from "../assets/performance_1.jpg";
                         </div>
                     </dl>
                 </div>
-            </section>
+            </div>
         </div>
     </section>
 
-    <section
-        class="relative bg-secondary/10 isolate px-6 py-24 sm:py-32 lg:px-8"
-    >
+    <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
         <div
             class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
             aria-hidden="true"
@@ -370,7 +520,7 @@ import performance_1 from "../assets/performance_1.jpg";
             class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2"
         >
             <div
-                class="rounded-3xl rounded-t-3xl bg-base-100 p-8 ring-1 ring-gray-900/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl"
+                class="rounded-3xl bg-secondary/10 rounded-t-3xl bg-base-100 p-8 ring-1 ring-gray-900/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl"
             >
                 <h3 id="tier-hobby" class="font-semibold">Lump Sum</h3>
                 <p class="mt-4 flex items-baseline gap-x-2">
@@ -380,8 +530,8 @@ import performance_1 from "../assets/performance_1.jpg";
                     <span class="text-base">+$25/month for Hosting</span>
                 </p>
                 <p class="mt-6">
-                    The perfect plan if you&#039;re just getting started with
-                    our product.
+                    Launch your high-performance presence today with one simple,
+                    upfront investment.
                 </p>
                 <ul role="list" class="mt-8 space-y-3 text-sm/6 sm:mt-10">
                     <li class="flex gap-x-3">
@@ -454,7 +604,8 @@ import performance_1 from "../assets/performance_1.jpg";
                     <span class="text-info-content">/month</span>
                 </p>
                 <p class="mt-6 text-info-content">
-                    Dedicated support and infrastructure for your company.
+                    Get a premium, managed website with zero upfront costs and
+                    unlimited updates.
                 </p>
                 <ul
                     role="list"
