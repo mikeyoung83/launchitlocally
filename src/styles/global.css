@@ -30,3 +30,16 @@ body {
 .hero-content {
     max-width: 90rem;
 }
+
+.dark-mode-show {
+    display: none;
+}
+
+/* When the theme controller IS checked (Dark Mode) */
+:has(.theme-controller:checked) .dark-mode-hide {
+    display: none;
+}
+
+:has(.theme-controller:checked) .dark-mode-show {
+    display: block;
+}

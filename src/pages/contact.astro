@@ -2,153 +2,199 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Contact Us">
-    <div class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
-        <div class="mx-auto max-w-xl lg:max-w-4xl">
+<MainLayout
+    title="Contact Us"
+    description="Custom-coded, high-performance websites for local businesses. No bloat, just speed."
+>
+    <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
+        <div
+            class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+            aria-hidden="true"
+        >
+        </div>
+        <div class="mx-auto max-w-4xl">
+            <span
+                class="rounded-full bg-secondary/10 px-3 py-1 text-sm/6 font-semibold text-primary"
+                >Contact
+            </span>
             <h2
-                class="text-4xl font-semibold tracking-tight text-pretty text-gray-900 sm:text-5xl"
+                class="mt-6 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
             >
-                Let’s talk about your project
+                Let's Talk About Your Business Needs
             </h2>
-            <p class="mt-2 text-lg/8 text-gray-600">
-                We help companies and individuals build out their brand
-                guidelines.
-            </p>
-            <div class="mt-16 flex flex-col gap-16 sm:gap-y-20 lg:flex-row">
-                <form action="#" method="POST" class="lg:flex-auto">
-                    <div
-                        class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2"
-                    >
-                        <div>
-                            <label
-                                for="first-name"
-                                class="block text-sm/6 font-semibold text-gray-900"
-                                >First name</label
-                            >
-                            <div class="mt-2.5">
-                                <input
-                                    type="text"
-                                    name="first-name"
-                                    id="first-name"
-                                    autocomplete="given-name"
-                                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <label
-                                for="last-name"
-                                class="block text-sm/6 font-semibold text-gray-900"
-                                >Last name</label
-                            >
-                            <div class="mt-2.5">
-                                <input
-                                    type="text"
-                                    name="last-name"
-                                    id="last-name"
-                                    autocomplete="family-name"
-                                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <label
-                                for="budget"
-                                class="block text-sm/6 font-semibold text-gray-900"
-                                >Budget</label
-                            >
-                            <div class="mt-2.5">
-                                <input
-                                    id="budget"
-                                    name="budget"
-                                    type="text"
-                                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                                />
-                            </div>
-                        </div>
-                        <div>
-                            <label
-                                for="website"
-                                class="block text-sm/6 font-semibold text-gray-900"
-                                >Website</label
-                            >
-                            <div class="mt-2.5">
-                                <input
-                                    type="url"
-                                    name="website"
-                                    id="website"
-                                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                                />
-                            </div>
-                        </div>
-                        <div class="sm:col-span-2">
-                            <label
-                                for="message"
-                                class="block text-sm/6 font-semibold text-gray-900"
-                                >Message</label
-                            >
-                            <div class="mt-2.5">
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    rows="4"
-                                    class="block w-full rounded-md bg-white px-3.5 py-2 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
-                                ></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mt-10">
-                        <button
-                            type="submit"
-                            class="btn btn-primary block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                            >Let’s talk</button
+        </div>
+        <p
+            class="mx-auto mt-6 max-w-4xl text-lg font-medium text-pretty sm:text-xl/8"
+        >
+            We’re ready to take the technical weight off your shoulders. Send us
+            an email with your ideas, and a member of our local team will
+            respond within 24 hours to help you start your journey toward a
+            better web presence.
+        </p>
+        <div
+            class="mx-auto mt-16 max-w-4xl flex flex-col gap-16 sm:gap-y-20 lg:flex-row"
+        >
+            <div id="success-message" class="hidden">
+                <h3 class="text-2xl font-bold text-primary">Message Sent!</h3>
+                <p class="mt-4 text-lg">
+                    Thanks for reaching out. We’ll review your details and get
+                    back to you within 24 hours.
+                </p>
+            </div>
+
+            <form
+                id="contact"
+                method="POST"
+                data-netlify="true"
+                name="contact"
+                class="lg:flex-auto"
+            >
+                <input type="hidden" name="form-name" value="contact" />
+
+                <div class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+                    <div>
+                        <label
+                            for="first-name"
+                            class="block text-sm/6 font-semibold"
+                            >First name</label
                         >
-                    </div>
-                    <p class="mt-4 text-sm/6 text-gray-500">
-                        By submitting this form, I agree to the <a
-                            href="#"
-                            class="font-semibold text-indigo-600"
-                            >privacy&nbsp;policy</a
-                        >.
-                    </p>
-                </form>
-                <div class="lg:mt-6 lg:w-80 lg:flex-none">
-                    <img
-                        class="h-12 w-auto"
-                        src="https://tailwindui.com/plus-assets/img/logos/workcation-logo-indigo-600.svg"
-                        alt=""
-                    />
-                    <figure class="mt-10">
-                        <blockquote
-                            class="text-lg/8 font-semibold text-gray-900"
-                        >
-                            <p>
-                                “Lorem ipsum dolor sit amet consectetur
-                                adipisicing elit. Nemo expedita voluptas culpa
-                                sapiente alias molestiae. Numquam corrupti in
-                                laborum sed rerum et corporis.”
-                            </p>
-                        </blockquote>
-                        <figcaption class="mt-10 flex gap-x-6">
-                            <img
-                                src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=96&h=96&q=80"
-                                alt=""
-                                class="size-12 flex-none rounded-full bg-gray-50"
+                        <div class="mt-2.5">
+                            <input
+                                type="text"
+                                name="first-name"
+                                id="first-name"
+                                required
+                                autocomplete="given-name"
+                                class="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
                             />
-                            <div>
-                                <div
-                                    class="text-base font-semibold text-gray-900"
-                                >
-                                    Brenna Goyette
-                                </div>
-                                <div class="text-sm/6 text-gray-600">
-                                    CEO of Workcation
-                                </div>
-                            </div>
-                        </figcaption>
-                    </figure>
+                        </div>
+                    </div>
+                    <div>
+                        <label
+                            for="last-name"
+                            class="block text-sm/6 font-semibold"
+                            >Last name</label
+                        >
+                        <div class="mt-2.5">
+                            <input
+                                type="text"
+                                name="last-name"
+                                id="last-name"
+                                required
+                                autocomplete="family-name"
+                                class="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                            />
+                        </div>
+                    </div>
+                    <div>
+                        <label for="Email" class="block text-sm/6 font-semibold"
+                            >Email</label
+                        >
+                        <div class="mt-2.5">
+                            <input
+                                type="email"
+                                name="email"
+                                id="email"
+                                required
+                                class="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                            />
+                        </div>
+                    </div>
+
+                    <div>
+                        <label
+                            for="website"
+                            class="block text-sm/6 font-semibold">Website</label
+                        >
+                        <div class="mt-2.5">
+                            <input
+                                type="url"
+                                name="website"
+                                id="website"
+                                placeholder="https://example.com"
+                                class="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="sm:col-span-2">
+                        <label
+                            for="message"
+                            class="block text-sm/6 font-semibold">Message</label
+                        >
+                        <div class="mt-2.5">
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                required
+                                class="block w-full rounded-md bg-white px-3.5 py-2 text-base outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600"
+                            ></textarea>
+                        </div>
+                    </div>
                 </div>
+                <div class="mt-10">
+                    <button
+                        type="submit"
+                        class="btn btn-primary block w-full rounded-md px-3.5 py-2.5 text-center text-sm font-semibold shadow-xs focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                        >Let’s Talk</button
+                    >
+                </div>
+                <p class="mt-4 text-sm/6 text-gray-500">
+                    By submitting this form, I agree to the <a
+                        href="#"
+                        class="font-semibold text-indigo-600">privacy policy</a
+                    >.
+                </p>
+            </form>
+            <div class="lg:mt-6 lg:w-80 lg:flex-none">
+                <figure class="mt-10">
+                    <blockquote class="text-lg/8 font-semibold">
+                        <p>
+                            “Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Nemo expedita voluptas culpa sapiente alias
+                            molestiae. Numquam corrupti in laborum sed rerum et
+                            corporis.”
+                        </p>
+                    </blockquote>
+                    <figcaption class="mt-10 flex gap-x-6">
+                        <img
+                            src="https://images.unsplash.com/photo-1550525811-e5869dd03032?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=96&h=96&q=80"
+                            alt=""
+                            class="size-12 flex-none rounded-full bg-gray-50"
+                        />
+                        <div>
+                            <div class="text-base font-semibold">
+                                Mike Young
+                            </div>
+                            <div class="text-sm/6 text-gray-600">
+                                Owner, Developer
+                            </div>
+                        </div>
+                    </figcaption>
+                </figure>
             </div>
         </div>
-    </div>
+    </section>
 </MainLayout>
+<script>
+    const contactForm = document.getElementById("contact-form");
+    const successMessage = document.getElementById("success-message");
+
+    contactForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(contactForm);
+
+        fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString(),
+        })
+            .then(() => {
+                contactForm.classList.add("hidden");
+                successMessage.classList.remove("hidden");
+            })
+            .catch((error) => alert(error));
+    });
+</script>
