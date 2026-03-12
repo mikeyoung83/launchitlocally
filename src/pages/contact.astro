@@ -46,6 +46,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                 id="contact"
                 method="POST"
                 data-netlify="true"
+                action="/pages/success"
                 name="contact"
                 class="lg:flex-auto"
             >
@@ -177,24 +178,3 @@ import MainLayout from "../layouts/MainLayout.astro";
         </div>
     </section>
 </MainLayout>
-<script>
-    const contactForm = document.getElementById("contact-form");
-    const successMessage = document.getElementById("success-message");
-
-    contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-
-        const formData = new FormData(contactForm);
-
-        fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString(),
-        })
-            .then(() => {
-                contactForm.classList.add("hidden");
-                successMessage.classList.remove("hidden");
-            })
-            .catch((error) => alert(error));
-    });
-</script>
