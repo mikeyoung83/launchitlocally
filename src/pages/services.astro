@@ -1,47 +1,43 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
-
-const services = [
-    {
-        title: "Web Design",
-        desc: "Beautiful, custom UI/UX designs.",
-        icon: "🎨",
-    },
-    {
-        title: "Development",
-        desc: "Fast, SEO-optimized Astro sites.",
-        icon: "🚀",
-    },
-    {
-        title: "E-commerce",
-        desc: "Scalable online stores that sell.",
-        icon: "🛒",
-    },
-];
 ---
 
-<MainLayout title="Our Services">
-    <section class="p-10 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-bold text-center mb-10">What We Do</h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {
-                services.map((service) => (
-                    <div class="card bg-base-100 shadow-xl border border-base-200 hover:border-primary transition-colors">
-                        <div class="card-body items-center text-center">
-                            <span class="text-5xl mb-4">{service.icon}</span>
-                            <h3 class="card-title font-bold">
-                                {service.title}
-                            </h3>
-                            <p>{service.desc}</p>
-                            <div class="card-actions mt-4">
-                                <button class="btn btn-sm btn-ghost">
-                                    Learn More
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                ))
-            }
+<MainLayout
+    title="Services"
+    description="Custom-coded, high-performance websites for local businesses. No bloat, just speed."
+>
+    <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
+        <div
+            class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+            aria-hidden="true"
+        >
+        </div>
+        <div class="mx-auto max-w-4xl">
+            <span
+                class="rounded-full bg-secondary/10 px-3 py-1 text-sm/6 font-semibold text-primary"
+                >Services
+            </span>
+            <h2
+                class="mt-6 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
+            >
+                Professional Web Design & Development
+            </h2>
+        </div>
+        <p
+            class="mx-auto mt-6 max-w-4xl text-lg font-medium text-pretty sm:text-xl/8"
+        >
+            Your project details are in our hands. We’re already looking over
+            your information and will be in touch within 24 hours to discuss the
+            next steps for your digital foundation.
+        </p>
+        <p
+            class="mx-auto mt-6 max-w-4xl text-lg font-medium text-pretty sm:text-xl/8 text-accent"
+        >
+            We look forward to talking soon.
+        </p>
+
+        <div class="mx-auto mt-6 max-w-4xl">
+            <a href="/" class="btn btn-sm btn-outline btn-primary">Back Home</a>
         </div>
     </section>
 </MainLayout>

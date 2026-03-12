@@ -2,18 +2,42 @@
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<MainLayout title="Message Sent!">
-    <div class="hero min-h-[60vh]">
-        <div class="hero-content text-center">
-            <div class="max-w-md">
-                <div class="text-6xl mb-4">🚀</div>
-                <h1 class="text-4xl font-bold">Message Received!</h1>
-                <p class="py-6">
-                    Thanks for reaching out. Our team will get back to you
-                    within 24 hours.
-                </p>
-                <a href="/" class="btn btn-primary">Back to Home</a>
-            </div>
+<MainLayout
+    title="Message Received!"
+    description="Custom-coded, high-performance websites for local businesses. No bloat, just speed."
+>
+    <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
+        <div
+            class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
+            aria-hidden="true"
+        >
         </div>
-    </div>
+        <div class="mx-auto max-w-4xl">
+            <span
+                class="rounded-full bg-secondary/10 px-3 py-1 text-sm/6 font-semibold text-primary"
+                >Message Received
+            </span>
+            <h2
+                class="mt-6 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
+            >
+                Thank You For Reaching Out!
+            </h2>
+        </div>
+        <p
+            class="mx-auto mt-6 max-w-4xl text-lg font-medium text-pretty sm:text-xl/8"
+        >
+            Your project details are in our hands. We’re already looking over
+            your information and will be in touch within 24 hours to discuss the
+            next steps for your digital foundation.
+        </p>
+        <p
+            class="mx-auto mt-6 max-w-4xl text-lg font-medium text-pretty sm:text-xl/8 text-accent"
+        >
+            We look forward to talking soon.
+        </p>
+
+        <div class="mx-auto mt-6 max-w-4xl">
+            <a href="/" class="btn btn-sm btn-outline btn-primary">Back Home</a>
+        </div>
+    </section>
 </MainLayout>
