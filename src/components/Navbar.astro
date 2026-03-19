@@ -22,6 +22,7 @@ import Nav from "../components/Nav.astro";
             aria-label="open sidebar"
             class="btn btn-square btn-ghost"
         >
+            <span class="sr-only">Sidebar icon</span>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -42,6 +43,7 @@ import Nav from "../components/Nav.astro";
         </ul>
 
         <label
+            aria-label="theme controller"
             for="theme-controller"
             class="swap swap-rotate btn btn-ghost btn-circle"
         >
@@ -82,13 +84,20 @@ import Nav from "../components/Nav.astro";
     <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
 
     <div class="drawer-side">
-        <label
-            for="my-drawer-2"
+        <button
+            type="button"
+            class="drawer-overlay"
             aria-label="close sidebar"
-            class="drawer-overlay"></label>
-        <ul class="menu bg-base-200 min-h-full w-80 p-4 pt-30">
-            <Nav />
-        </ul>
+            onclick="document.getElementById('my-drawer-2').click()"
+        >
+            <span class="sr-only">Close navigation menu</span>
+        </button>
+
+        <nav class="menu bg-base-200 min-h-full w-80 p-4 pt-30">
+            <ul>
+                <Nav />
+            </ul>
+        </nav>
     </div>
 </div>
 

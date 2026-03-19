@@ -1,12 +1,47 @@
-<li><a aria-label="Home" href="/">Home</a></li>
-<li><a aria-label="Services" href="/services">Services</a></li>
-<!-- <li><a href="/portfolio">Portfolio</a></li> -->
-<li><a aria-label="Pricing" href="/pricing">Pricing</a></li>
-<li><a aria-label="Contact" href="/contact">Contact</a></li>
+---
+// Get the current URL path from Astro
+const { pathname } = Astro.url;
+
+// A helper function to check if the link is active
+// We trim trailing slashes to ensure "/" matches "/"
+const isActive = (path: string) =>
+    pathname === path || pathname === path + "/" ? "active" : "";
+---
+
+<li><a aria-label="Go to Homepage" href="/" class={isActive("/")}>Home</a></li>
 <li>
     <a
-        aria-label="Contact"
-        href="/contact"
-        class="btn btn-primary btn-sm text-white ml-2">Work With Us</a
+        aria-label="Go to Services Page"
+        href="/services"
+        class={isActive("/services")}>Services</a
     >
 </li>
+<li>
+    <a
+        aria-label="Go to Pricing Page"
+        href="/pricing"
+        class={isActive("/pricing")}>Pricing</a
+    >
+</li>
+<li>
+    <a
+        aria-label="Go to Contact Page"
+        href="/contact"
+        class={isActive("/contact")}>Contact</a
+    >
+</li>
+<li class="mt-4 lg:mt-0 lg:ml-2">
+    <a
+        aria-label="Go to Contact Page"
+        href="/contact"
+        class="btn btn-primary btn-sm text-white"
+    >
+        Work With Us
+    </a>
+</li>
+
+<style>
+    .active {
+        font-weight: bold;
+    }
+</style>
