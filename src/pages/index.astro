@@ -2,7 +2,11 @@
 import MainLayout from "../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
 import performance_1 from "../assets/performance_1.jpg";
+import performance_2 from "../assets/performance_2.jpg";
+import performance_3 from "../assets/performance_3.jpg";
+import performance_4 from "../assets/performance_4.jpg";
 import mike_young from "../assets/mike-young.jpg";
+import home_hero from "../assets/home_header-hero.jpg";
 ---
 
 <MainLayout
@@ -58,8 +62,8 @@ import mike_young from "../assets/mike-young.jpg";
                             height={1442}
                             decoding="async"
                             loading="lazy"
-                            src="https://images.unsplash.com/photo-1573867639040-6dd25fa5f597?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                            alt="Mike Young"
+                            src={home_hero}
+                            alt="Hand drawn website mockup"
                             class="w-304 rounded-md ring-1 shadow-2xl ring-gray-900/10"
                         />
                     </div>
@@ -434,35 +438,47 @@ import mike_young from "../assets/mike-young.jpg";
                             class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
                         >
                             <Image
+                                width={600}
+                                height={600}
                                 loading="lazy"
                                 src={performance_1}
                                 alt="Man reviewing performance results."
+                                class="block size-full object-cover"
                             />
                         </div>
                         <div
                             class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40"
                         >
-                            <img
-                                alt=""
-                                src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            <Image
+                                width={600}
+                                height={600}
+                                loading="lazy"
+                                src={performance_2}
+                                alt="Woman holding tablet sitting down."
                                 class="block size-full object-cover"
                             />
                         </div>
                         <div
                             class="aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10"
                         >
-                            <img
-                                alt=""
-                                src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?&auto=format&fit=crop&crop=left&w=560&h=560&q=90"
+                            <Image
+                                width={600}
+                                height={600}
+                                loading="lazy"
+                                src={performance_3}
+                                alt="Woman holding tablet sitting down."
                                 class="block size-full object-cover"
                             />
                         </div>
                         <div
                             class="-mt-8 aspect-square overflow-hidden rounded-xl shadow-xl outline-1 -outline-offset-1 outline-black/10 lg:-mt-40"
                         >
-                            <img
-                                alt=""
-                                src="https://images.unsplash.com/photo-1598257006458-087169a1f08d?&auto=format&fit=crop&crop=center&w=560&h=560&q=90"
+                            <Image
+                                width={600}
+                                height={600}
+                                loading="lazy"
+                                src={performance_4}
+                                alt="Man and woman small business owners"
                                 class="block size-full object-cover"
                             />
                         </div>
