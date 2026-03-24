@@ -71,3 +71,12 @@ body {
         );
     background-size: 55px 55px;
 }
+
+.corner-gradient {
+    --color: color-mix(in oklab, var(--color-secondary) 10%, transparent);
+    background-image: radial-gradient(
+        circle at bottom left,
+        var(--color) 15%,
+        #fff 50%
+    );
+}

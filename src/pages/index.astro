@@ -1,26 +1,26 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import { Image } from "astro:assets";
+import home_hero from "../assets/home_header-hero.jpg";
+import mike_young from "../assets/mike-young.jpg";
 import performance_1 from "../assets/performance_1.jpg";
 import performance_2 from "../assets/performance_2.jpg";
 import performance_3 from "../assets/performance_3.jpg";
 import performance_4 from "../assets/performance_4.jpg";
-import mike_young from "../assets/mike-young.jpg";
-import home_hero from "../assets/home_header-hero.jpg";
 ---
 
 <MainLayout
     title="Home"
     description="Custom-coded, high-performance websites for local businesses. No bloat, just speed."
 >
-    <div class="relative isolate overflow-hidden">
+    <section class="relative isolate overflow-hidden corner-gradient">
         <div
             class="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40"
         >
             <div class="mx-auto max-w-2xl lg:mx-0 lg:shrink-0 lg:pt-8">
                 <div class="mt-12 sm:mt-32 lg:mt-16">
                     <span
-                        class="rounded-full bg-secondary/10 px-3 py-1 text-/6 font-semibold text-primary"
+                        class="rounded-full bg-secondary/10 px-3 py-1 text-sm/6 font-semibold text-primary"
                         >Custom Designs, Custom Coded
                     </span>
                 </div>
@@ -70,7 +70,7 @@ import home_hero from "../assets/home_header-hero.jpg";
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
     <section class="bg-secondary/10 py-24 sm:py-32">
         <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -513,7 +513,7 @@ import home_hero from "../assets/home_header-hero.jpg";
         </div>
     </section>
 
-    <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8 grid-bg">
+    <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
         <div
             class="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl"
             aria-hidden="true"
