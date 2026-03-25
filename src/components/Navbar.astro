@@ -81,56 +81,59 @@ import Nav from "../components/Nav.astro";
 </div>
 
 <div class="drawer">
-    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <label for="my-drawer-2" class="drawer-button">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
 
-    <div class="drawer-side">
-        <button
-            type="button"
-            class="drawer-overlay"
-            aria-label="close sidebar"
-            onclick="document.getElementById('my-drawer-2').click()"
-        >
-            <span class="sr-only">Close navigation menu</span>
-        </button>
+        <div class="drawer-side">
+            <button
+                type="button"
+                class="drawer-overlay"
+                aria-label="close sidebar"
+                onclick="document.getElementById('my-drawer-2').click()"
+            >
+                <span class="sr-only">Close navigation menu</span>
+            </button>
 
-        <nav class="menu bg-base-200 min-h-full w-80 p-4 pt-30">
-            <ul>
-                <Nav />
-            </ul>
-        </nav>
-    </div>
-</div>
+            <nav class="menu bg-base-200 min-h-full w-80 p-4 pt-30">
+                <ul>
+                    <Nav />
+                </ul>
+            </nav>
+        </div>
+    </label>
 
-<script>
-    const currentPath = window.location.pathname;
-    const navLinks = document.querySelectorAll(".navbar a");
+    <script>
+        const currentPath = window.location.pathname;
+        const navLinks = document.querySelectorAll(".navbar a");
 
-    navLinks.forEach((link) => {
-        const href = link.getAttribute("href");
-        if (!href) return;
+        navLinks.forEach((link) => {
+            const href = link.getAttribute("href");
+            if (!href) return;
 
-        if (
-            href === currentPath ||
-            (href !== "/" && currentPath.startsWith(href))
-        ) {
-            link.classList.add("active");
-            link.classList.add("text-primary", "font-bold");
+            if (
+                href === currentPath ||
+                (href !== "/" && currentPath.startsWith(href))
+            ) {
+                link.classList.add("active");
+                link.classList.add("text-primary", "font-bold");
+            }
+        });
+
+        const themeToggle = document.querySelector(
+            ".theme-controller",
+        ) as HTMLInputElement;
+        const currentTheme =
+            document.documentElement.getAttribute("data-theme");
+
+        if (themeToggle && currentTheme === "business") {
+            themeToggle.checked = true;
         }
-    });
 
-    const themeToggle = document.querySelector(
-        ".theme-controller",
-    ) as HTMLInputElement;
-    const currentTheme = document.documentElement.getAttribute("data-theme");
-
-    if (themeToggle && currentTheme === "business") {
-        themeToggle.checked = true;
-    }
-
-    themeToggle?.addEventListener("change", (e) => {
-        const target = e.target as HTMLInputElement;
-        const newTheme = target.checked ? "business" : "corporate";
-        document.documentElement.setAttribute("data-theme", newTheme);
-        localStorage.setItem("theme", newTheme);
-    });
-</script>
+        themeToggle?.addEventListener("change", (e) => {
+            const target = e.target as HTMLInputElement;
+            const newTheme = target.checked ? "business" : "corporate";
+            document.documentElement.setAttribute("data-theme", newTheme);
+            localStorage.setItem("theme", newTheme);
+        });
+    </script>
+</div>
