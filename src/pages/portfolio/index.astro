@@ -11,6 +11,12 @@ const projects: CollectionEntry<"portfolio">[] =
 const sortedProjects = projects.sort(
     (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
 );
+
+// Define the date formatter
+const dateFormatter = new Intl.DateTimeFormat("en-US", {
+    month: "long",
+    year: "numeric",
+});
 ---
 
 <MainLayout
@@ -37,9 +43,9 @@ const sortedProjects = projects.sort(
         <p
             class="mx-auto mt-6 max-w-4xl text-lg font-medium text-pretty sm:text-xl/8"
         >
-            Choose an affordable plan that’s packed with the best features for
-            engaging your audience, creating customer loyalty, and driving
-            sales.
+            Proven results, powered by clean code. Browse our latest projects to
+            see how we combine modern aesthetics with industry-leading
+            performance to help local businesses dominate their digital space.
         </p>
 
         <div
@@ -64,10 +70,11 @@ const sortedProjects = projects.sort(
                         <div class="max-w-xl">
                             <div class="mt-4 flex items-center gap-x-4 text-xs">
                                 <time
-                                    datetime="2020-03-16"
-                                    class="text-gray-500"
+                                    datetime={project.data.publishDate.toLocaleDateString()}
                                 >
-                                    {project.data.publishDate.toLocaleDateString()}
+                                    {dateFormatter.format(
+                                        project.data.publishDate,
+                                    )}
                                 </time>
                             </div>
                             <div class="group relative">
