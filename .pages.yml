@@ -8,3 +8,14 @@ content:
     fields:
       - name: title
         type: string
+      - name: description
+        type: string
+      - name: image
+        type: string
+      - name: tags
+        type: array
+        fields:
+          - name: value
+            type: string
+      - name: publishDate
+        type: date
