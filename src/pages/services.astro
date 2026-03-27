@@ -192,9 +192,9 @@ import MainLayout from "../layouts/MainLayout.astro";
             </div>
 
             <div
-                class="lg:col-span-2 flex items-center py-16 px-8 lg:px-20 xl:px-32"
+                class="lg:col-span-2 flex items-center py-16 px-4 sm:px-8 lg:px-20 xl:px-32"
             >
-                <div class="max-w-3xl">
+                <div class="max-w-3xl w-full">
                     <h1
                         class="mt-2 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
                     >
@@ -210,70 +210,95 @@ import MainLayout from "../layouts/MainLayout.astro";
                     </p>
 
                     <div
-                        class="mt-12 overflow-x-auto w-full border border-base-300"
+                        class="mt-12 overflow-x-auto w-full border border-base-300 rounded-xl bg-base-100"
                     >
-                        <table class="table table-zebra w-full">
+                        <table
+                            class="table table-zebra w-full text-xs sm:text-sm lg:text-base"
+                        >
                             <thead class="bg-base-200">
                                 <tr class="text-base">
-                                    <th class="py-4">Feature</th>
-                                    <th class="text-error"
+                                    <th class="py-4 whitespace-normal"
+                                        >Feature</th
+                                    >
+                                    <th class="text-error whitespace-normal"
                                         >Standard WordPress / Builders</th
                                     >
-                                    <th class="text-primary font-bold"
-                                        >LaunchItLocally (Hand-Coded)</th
+                                    <th
+                                        class="text-primary font-bold whitespace-normal"
+                                        >LaunchItLocally</th
                                     >
                                 </tr>
                             </thead>
                             <tbody class="text-base-content/90">
                                 <tr>
-                                    <td class="font-semibold"
+                                    <td class="font-semibold whitespace-normal"
                                         >Average Load Speed</td
                                     >
-                                    <td>3–6 Seconds (Delayed)</td>
-                                    <td class="font-bold text-success"
+                                    <td class="whitespace-normal"
+                                        >3–6 Seconds (Delayed)</td
+                                    >
+                                    <td
+                                        class="font-bold text-success whitespace-normal"
                                         >Sub-1 Second (Instant)</td
                                     >
                                 </tr>
                                 <tr>
-                                    <td class="font-semibold">Security Model</td
+                                    <td class="font-semibold whitespace-normal"
+                                        >Security Model</td
                                     >
-                                    <td>Vulnerable to Plugin & DB Hacks</td>
-                                    <td class="font-bold text-success"
+                                    <td class="whitespace-normal"
+                                        >Vulnerable to Plugin & DB Hacks</td
+                                    >
+                                    <td
+                                        class="font-bold text-success whitespace-normal"
                                         >Inherently Secure (Static)</td
                                     >
                                 </tr>
                                 <tr>
-                                    <td class="font-semibold"
+                                    <td class="font-semibold whitespace-normal"
                                         >Maintenance Required</td
                                     >
-                                    <td>Weekly Updates & Security Patches</td>
-                                    <td class="font-bold text-success"
+                                    <td class="whitespace-normal"
+                                        >Weekly Updates & Security Patches</td
+                                    >
+                                    <td
+                                        class="font-bold text-success whitespace-normal"
                                         >Zero Maintenance Required</td
                                     >
                                 </tr>
                                 <tr>
-                                    <td class="font-semibold"
+                                    <td class="font-semibold whitespace-normal"
                                         >Google Lighthouse Score</td
                                     >
-                                    <td>Often 40–60/100 (Orange/Red)</td>
-                                    <td class="font-bold text-success"
+                                    <td class="whitespace-normal"
+                                        >Often 40–60/100 (Orange/Red)</td
+                                    >
+                                    <td
+                                        class="font-bold text-success whitespace-normal"
                                         >Guaranteed 100/100 (Green)</td
                                     >
                                 </tr>
                                 <tr>
-                                    <td class="font-semibold"
+                                    <td class="font-semibold whitespace-normal"
                                         >Codebase Weight</td
                                     >
-                                    <td>2MB+ (Heavy Bloat)</td>
-                                    <td class="font-bold text-success"
+                                    <td class="whitespace-normal"
+                                        >2MB+ (Heavy Bloat)</td
+                                    >
+                                    <td
+                                        class="font-bold text-success whitespace-normal"
                                         >&lt;100KB (Clean & Lean)</td
                                     >
                                 </tr>
                                 <tr>
-                                    <td class="font-semibold">SEO Foundation</td
+                                    <td class="font-semibold whitespace-normal"
+                                        >SEO Foundation</td
                                     >
-                                    <td>Plugin-Dependent & Slower Crawling</td>
-                                    <td class="font-bold text-success"
+                                    <td class="whitespace-normal"
+                                        >Plugin-Dependent & Slower Crawling</td
+                                    >
+                                    <td
+                                        class="font-bold text-success whitespace-normal"
                                         >Optimized for Instant Indexing</td
                                     >
                                 </tr>
@@ -285,7 +310,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                         <h2 class="text-2xl font-bold">
                             Speed is Your Competitive Edge
                         </h2>
-                        <p class="mt-4">
+                        <p class="mt-4 leading-relaxed">
                             A slow website is a silent business killer. When
                             your site loads instantly and scores perfectly on
                             every technical metric, you aren't just giving your
@@ -299,17 +324,20 @@ import MainLayout from "../layouts/MainLayout.astro";
             </div>
         </div>
     </section>
+
     <section class="grid-bg">
-        <div class="mx-auto max-w-7xl px-6 py-24 sm:py-32 lg:px-8">
+        <div class="mx-auto max-w-7xl px-6 py-20 sm:py-24 lg:px-8">
             <h2
-                class="max-w-2xl text-4xl font-semibold tracking-tight text-balance sm:text-5xl"
+                class="max-w-2xl text-4xl font-semibold tracking-tight text-balance sm:text-4xl"
             >
                 Built for speed. Engineered for results. <span
                     class="text-accent">Let’s launch your project.</span
                 >
             </h2>
             <div class="mt-10 flex items-center gap-x-6">
-                <a href="contact" class="btn btn-primary">Get started today</a>
+                <a href="contact" class="btn btn-primary px-8"
+                    >Get started today</a
+                >
             </div>
         </div>
     </section>
