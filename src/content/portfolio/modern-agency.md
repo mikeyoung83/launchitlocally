@@ -2,7 +2,6 @@
 title: "Modern Agency Rebrand"
 description: "A complete visual overhaul for a tech startup."
 image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f"
-tags: ["Branding", "Astro"]
 publishDate: 2026-01-15
 ---
 
