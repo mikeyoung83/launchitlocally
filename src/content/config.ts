@@ -7,7 +7,6 @@ const portfolio = defineCollection({
     title: z.string(),
     description: z.string(),
     image: z.string().default("/images/placeholder.jpg"),
-    tags: z.array(z.string()).default([]),
     publishDate: z.coerce.date(),
   }),
 });
