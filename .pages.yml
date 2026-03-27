@@ -2,7 +2,7 @@
 content:
   - name: portfolio
     label: Portfolio Pieces
-    path: src/content/portfolio
+    path: portfolio
     extension: md
     format: frontmatter
     fields:
