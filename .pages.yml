@@ -1,4 +1,6 @@
-# pages.yml
+media:
+  input: public/images
+  output: /images
 content:
   - name: portfolio
     label: Portfolio Pieces
@@ -11,6 +13,6 @@ content:
       - name: description
         type: string
       - name: image
-        type: string
+        type: image
       - name: publishDate
         type: date
