@@ -20,4 +20,5 @@ content:
         config:
           multiple: false
       - name: publishDate
+        label: Publish Date
         type: date
