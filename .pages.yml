@@ -1,0 +1,19 @@
+# pages.yml
+content:
+  - name: portfolio
+    label: Portfolio Pieces
+    folder: src/content/portfolio
+    extension: md
+    format: frontmatter
+    fields:
+      - { name: title, label: Project Title, type: string }
+      - { name: description, label: Short Description, type: text }
+      - {
+          name: image,
+          label: Featured Image,
+          type: image,
+          default: "/images/placeholder.jpg",
+        }
+      - { name: tags, label: Tags, type: list }
+      - { name: publishDate, label: Publish Date, type: datetime }
+      - { name: body, label: Case Study Content, type: rich-text }
