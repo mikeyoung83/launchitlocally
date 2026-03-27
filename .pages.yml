@@ -13,6 +13,8 @@ content:
       - name: description
         type: string
       - name: image
-        type: image
+        type: image # This MUST be 'image'
+        config:
+          multiple: false
       - name: publishDate
         type: date
