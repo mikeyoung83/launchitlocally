@@ -2,18 +2,7 @@
 content:
   - name: portfolio
     label: Portfolio Pieces
-    path: portfolio
-    extension: md
-    format: frontmatter
+    path: src/content/portfolio
     fields:
-      - { name: title, label: Project Title, type: string }
-      - { name: description, label: Short Description, type: text }
-      - {
-          name: image,
-          label: Featured Image,
-          type: image,
-          default: "/images/placeholder.jpg",
-        }
-      - { name: tags, label: Tags, type: list }
-      - { name: publishDate, label: Publish Date, type: datetime }
-      - { name: body, label: Case Study Content, type: rich-text }
+      - name: title
+        type: string
