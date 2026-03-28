@@ -1,6 +1,6 @@
 media:
-  input: public/images
-  output: /images
+  input: src/assets/portfolio
+  output: ../../assets/portfolio
 content:
   - name: portfolio
     label: Portfolio Pieces
