@@ -2,6 +2,7 @@
 import { getCollection, type CollectionEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import readingTime from "reading-time";
+import { Image } from "astro:assets";
 
 // 1. Generate paths for all entries
 export async function getStaticPaths() {
@@ -55,7 +56,7 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
         </header>
 
         <main class="max-w-4xl mx-auto px-6 py-12">
-            <img
+            <Image
                 src={entry.data.image}
                 alt={entry.data.title}
                 class="w-full object-cover rounded-3xl shadow-2xl mb-16"
