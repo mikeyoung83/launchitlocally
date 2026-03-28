@@ -5,7 +5,7 @@ content:
   - name: portfolio
     label: Portfolio Pieces
     path: src/content/portfolio
-    filename: "{year}-{month}-{day}-{fields.title}.md"
+    filename: "{fields.title}.md"
     type: collection
     fields:
       - name: title
