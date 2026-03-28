@@ -63,6 +63,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                                             height={400}
                                             decoding="async"
                                             loading="eager"
+                                            fetchpriority="high"
                                             src={project.data.image}
                                             alt={project.data.title}
                                             class="aspect-video w-full  object-cover sm:aspect-2/1 lg:aspect-3/2"
