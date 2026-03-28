@@ -56,15 +56,19 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                     <article class="flex flex-col items-start justify-between">
                         <div class="relative w-full">
                             <a href={`/portfolio/${project.slug}`}>
-                                <Image
-                                    width={500}
-                                    height={400}
-                                    decoding="async"
-                                    loading="eager"
-                                    src={project.data.image}
-                                    alt={project.data.title}
-                                    class="aspect-video w-full rounded-2xl  object-cover sm:aspect-2/1 lg:aspect-3/2"
-                                />
+                                <div class="mockup-window border border-base-300 w-full">
+                                    <div class="grid place-content-center border-t border-base-300 ">
+                                        <Image
+                                            width={500}
+                                            height={400}
+                                            decoding="async"
+                                            loading="eager"
+                                            src={project.data.image}
+                                            alt={project.data.title}
+                                            class="aspect-video w-full  object-cover sm:aspect-2/1 lg:aspect-3/2"
+                                        />
+                                    </div>
+                                </div>
                             </a>
                         </div>
                         <div class="max-w-xl">
