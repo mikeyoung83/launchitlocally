@@ -81,8 +81,14 @@ import Nav from "../components/Nav.astro";
 </div>
 
 <div class="drawer">
-    <label for="my-drawer-2"> </label>
-    <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+    <label for="my-drawer-2" class="sr-only">Toggle navigation drawer</label>
+
+    <input
+        id="my-drawer-2"
+        type="checkbox"
+        class="drawer-toggle"
+        aria-label="Toggle navigation drawer"
+    />
 
     <div class="drawer-side">
         <button
