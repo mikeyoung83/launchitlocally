@@ -1,5 +1,7 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
+import { Image } from "astro:assets";
+import services_1 from "../assets/services_1.jpg";
 ---
 
 <MainLayout
@@ -184,9 +186,13 @@ import MainLayout from "../layouts/MainLayout.astro";
             class="grid grid-cols-1 lg:grid-cols-3 min-h-screen w-full overflow-hidden"
         >
             <div class="lg:col-span-1 h-64 lg:h-full overflow-hidden">
-                <img
-                    src="https://images.unsplash.com/photo-1559136555-9303baea8ebd?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-x=.4&w=2560&h=3413&&q=80"
-                    alt="High Performance Metrics"
+                <Image
+                    width={800}
+                    height={2000}
+                    decoding="async"
+                    loading="eager"
+                    src={services_1}
+                    alt="Desk with laptop"
                     class="w-full h-full object-cover"
                 />
             </div>
@@ -247,7 +253,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                                         >Security Model</td
                                     >
                                     <td class="whitespace-normal"
-                                        >Vulnerable to Plugin & DB Hacks</td
+                                        >Vulnerable to Plugin & Database Hacks</td
                                     >
                                     <td
                                         class="font-bold text-success whitespace-normal"
@@ -271,11 +277,11 @@ import MainLayout from "../layouts/MainLayout.astro";
                                         >Google Lighthouse Score</td
                                     >
                                     <td class="whitespace-normal"
-                                        >Often 40–60/100 (Orange/Red)</td
+                                        >Often 40–60/100</td
                                     >
                                     <td
                                         class="font-bold text-success whitespace-normal"
-                                        >Guaranteed 100/100 (Green)</td
+                                        >90+/100)</td
                                     >
                                 </tr>
                                 <tr>
