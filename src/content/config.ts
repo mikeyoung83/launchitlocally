@@ -8,6 +8,7 @@ const portfolio = defineCollection({
   ) =>
     z.object({
       title: z.string(),
+      intro: z.string(),
       description: z.string(),
       image: image(), // Changed from z.string() to image()
       tags: z.array(z.string()).default([]),

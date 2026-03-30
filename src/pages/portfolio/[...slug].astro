@@ -32,47 +32,42 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
 });
 ---
 
-<MainLayout title={`${entry.data.title} | Case Study`}>
-    <div class="min-h-screen bg-base-100">
-        <header class="max-w-4xl mx-auto pt-20 px-6">
-            <div
-                class="flex items-center gap-2 text-primary font-bold mb-4 uppercase tracking-widest text-sm"
+<MainLayout title={`${entry.data.title} | Portfolio`}>
+    <div class="bg-base-100 px-6 py-32 lg:px-8">
+        <div class="mx-auto max-w-4xl text-base/7">
+            <p class="text-base/7 font-bold text-primary uppercase">
+                {formattedDate}
+                <span class="text-sm font-medium italic mt-4"
+                    >| {stats.text}</span
+                >
+            </p>
+            <h1
+                class="mt-2 text-4xl font-semibold tracking-tight text-pretty sm:text-5xl"
             >
-                <span>{formattedDate}</span>
-            </div>
-            <h1 class="text-5xl md:text-7xl font-serif font-bold mb-8 italic">
                 {entry.data.title}
             </h1>
 
-            <div
-                class="flex flex-wrap items-center gap-6 pb-12 border-b border-base-300"
-            >
-                <div class="flex items-center gap-2">
-                    <span class="text-sm opacity-60 italic"
-                        >⏱️ {stats.text}</span
-                    >
-                </div>
+            <p class="mt-6 text-xl/8">
+                {entry.data.intro}
+            </p>
+            <div class="mt-10 max-w-4xl">
+                <figure class="mt-16 mb-16">
+                    <Image
+                        src={entry.data.image}
+                        alt={entry.data.title}
+                        class="w-full object-cover rounded-3xl shadow-xl"
+                    />
+                </figure>
+
+                <p>
+                    {entry.data.description}
+                </p>
             </div>
-        </header>
-
-        <main class="max-w-4xl mx-auto px-6 py-12">
-            <Image
-                src={entry.data.image}
-                alt={entry.data.title}
-                class="w-full object-cover rounded-3xl shadow-2xl mb-16"
-            />
-
-            <article
-                class="prose prose-lg prose-headings:font-serif max-w-none"
-            >
-                <Content />
-            </article>
-
-            <div class="mt-20 text-center">
+            <div class="mt-20">
                 <a href="/portfolio" class="btn btn-outline"
                     >← Back to Projects</a
                 >
             </div>
-        </main>
+        </div>
     </div>
 </MainLayout>
