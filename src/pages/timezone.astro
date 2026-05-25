@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Timezone Sync</title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
+        ></script>
+    </head>
+    <body
+        class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col items-center justify-center p-4"
+    >
+        <div
+            class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-6"
+        >
+            <div
+                class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-100 pb-6"
+            >
+                <div>
+                    <h1
+                        class="text-2xl font-bold tracking-tight text-slate-950"
+                    >
+                        Timezone Converter
+                    </h1>
+                    <p class="text-sm text-slate-500">
+                        Drag any slider to shift time across zones
+                        simultaneously.
+                    </p>
+                </div>
+                <button
+                    id="resetBtn"
+                    class="self-start sm:self-auto px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-lg shadow-sm transition-colors duration-150"
+                >
+                    Reset to Current Time
+                </button>
+            </div>
+
+            <div class="space-y-4" id="timezone-containers"></div>
+        </div>
+
+        <script>
+            // Configuration for the timezones
+            const timezones = [
+                {
+                    id: "local",
+                    label: "US East Coast (EST/EDT)",
+                    zone: "America/New_York",
+                },
+                {
+                    id: "london",
+                    label: "England (London)",
+                    zone: "Europe/London",
+                },
+                {
+                    id: "sydney",
+                    label: "Australia (Sydney)",
+                    zone: "Australia/Sydney",
+                },
+            ];
+
+            // Central state: holding the currently viewed time as a Date object
+            let baseDate = new Date();
+            let isLive = true;
+            let liveInterval;
+
+            // UI References
+            const container = document.getElementById("timezone-containers");
+            const resetBtn = document.getElementById("resetBtn");
+
+            // Start the live clock ticking
+            function startLiveClock() {
+                isLive = true;
+                resetBtn.classList.add("opacity-50", "pointer-events-none");
+                resetBtn.textContent = "Showing Live Time";
+
+                updateClocks();
+                liveInterval = setInterval(() => {
+                    if (isLive) {
+                        baseDate = new Date();
+                        updateClocks();
+                    }
+                }, 1000);
+            }
+
+            function stopLiveClock() {
+                isLive = false;
+                clearInterval(liveInterval);
+                resetBtn.classList.remove("opacity-50", "pointer-events-none");
+                resetBtn.textContent = "Reset to Current Time";
+            }
+
+            // Initialize HTML structure for cards
+            function initCards() {
+                container.innerHTML = timezones
+                    .map(
+                        (tz) => `
+                <div class="bg-slate-50 rounded-xl p-5 border border-slate-200/60 transition-all duration-200 focus-within:ring-2 focus-within:ring-indigo-500/20">
+                    <div class="flex justify-between items-baseline mb-2">
+                        <label for="slider-${tz.id}" class="font-semibold text-slate-700">${tz.label}</label>
+                        <span id="date-${tz.id}" class="text-xs font-medium text-slate-400"></span>
+                    </div>
+                    <div class="text-3xl font-bold font-mono tracking-tight text-indigo-950 mb-4" id="time-${tz.id}">
+                        00:00:00
+                    </div>
+                    <input
+                        type="range"
+                        id="slider-${tz.id}"
+                        min="0"
+                        max="1439"
+                        class="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600 focus:outline-none"
+                    />
+                </div>
+            `,
+                    )
+                    .join("");
+
+                // Attach event listeners to sliders
+                timezones.forEach((tz) => {
+                    const slider = document.getElementById(`slider-${tz.id}`);
+
+                    // Input event triggers continuously while dragging
+                    slider.addEventListener("input", (e) => {
+                        stopLiveClock();
+                        handleSliderChange(tz.zone, parseInt(e.target.value));
+                    });
+                });
+            }
+
+            // Calculate minutes since midnight for a specific timezone
+            function getMinutesSinceMidnight(date, timeZone) {
+                const tzString = date.toLocaleString("en-US", {
+                    timeZone,
+                    hour12: false,
+                });
+                const parts = tzString.split(", ")[1].split(":");
+                const hours = parseInt(parts[0]);
+                const minutes = parseInt(parts[1]);
+                return hours * 60 + minutes;
+            }
+
+            // Update the UI elements based on the current baseDate
+            function updateClocks() {
+                timezones.forEach((tz) => {
+                    // Format Time
+                    const timeStr = baseDate.toLocaleTimeString("en-US", {
+                        timeZone: tz.zone,
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: isLive ? "2-digit" : undefined, // Hide seconds when scrubbing for cleaner UI
+                        hour12: true,
+                    });
+
+                    // Format Date
+                    const dateStr = baseDate.toLocaleDateString("en-US", {
+                        timeZone: tz.zone,
+                        weekday: "short",
+                        month: "short",
+                        day: "numeric",
+                    });
+
+                    document.getElementById(`time-${tz.id}`).textContent =
+                        timeStr;
+                    document.getElementById(`date-${tz.id}`).textContent =
+                        dateStr;
+
+                    // Update slider position smoothly
+                    const totalMinutes = getMinutesSinceMidnight(
+                        baseDate,
+                        tz.zone,
+                    );
+                    document.getElementById(`slider-${tz.id}`).value =
+                        totalMinutes;
+                });
+            }
+
+            // When a user moves a slider, adjust the global baseDate
+            function handleSliderChange(timeZone, targetMinutes) {
+                // Find out what time it currently is in the target timezone
+                const tzTargetStr = baseDate.toLocaleString("en-US", {
+                    timeZone,
+                    hour12: false,
+                });
+                const currentTzMinutes = getMinutesSinceMidnight(
+                    baseDate,
+                    timeZone,
+                );
+
+                // Calculate the difference in minutes the user just scrubbed
+                let minuteDifference = targetMinutes - currentTzMinutes;
+
+                // Apply that difference directly to our universal base date
+                baseDate.setMinutes(baseDate.getMinutes() + minuteDifference);
+
+                // Refresh all inputs/labels to match the new global time point
+                updateClocks();
+            }
+
+            // Reset Button Event
+            resetBtn.addEventListener("click", startLiveClock);
+
+            // Run application
+            initCards();
+            startLiveClock();
+        </script>
+    </body>
+</html>

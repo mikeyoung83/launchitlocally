@@ -57,7 +57,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                         <div class="relative w-full">
                             <a href={`/portfolio/${project.slug}`}>
                                 <div class="mockup-window border border-base-300 w-full">
-                                    <div class="grid place-content-center border-t border-base-300 ">
+                                    <div class="grid place-content-center border-t border-base-300 overflow-hidden">
                                         <Image
                                             width={500}
                                             height={400}
@@ -66,7 +66,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                                             fetchpriority="high"
                                             src={project.data.image}
                                             alt={project.data.title}
-                                            class="aspect-video w-full  object-cover sm:aspect-2/1 lg:aspect-3/2"
+                                            class="transition duration-300 ease-in-out hover:scale-110 aspect-video w-full  object-cover sm:aspect-2/1 lg:aspect-3/2"
                                         />
                                     </div>
                                 </div>
@@ -84,14 +84,14 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                             </div>
                             <div class="group relative">
                                 <h2 class="mt-3 text-lg/6 font-semibold">
-                                    <a href={`/portfolio/${project.slug}`}>
+                                    <a
+                                        class="link link-hover"
+                                        href={`/portfolio/${project.slug}`}
+                                    >
                                         <span class="inset-0" />
                                         {project.data.title}
                                     </a>
                                 </h2>
-                                <p class="mt-3 line-clamp-3 text-sm/6 ">
-                                    {project.data.description}
-                                </p>
                             </div>
                         </div>
                     </article>
