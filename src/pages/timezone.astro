@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Timezone Sync</title>
+        <!-- Tailwind CSS for a clean, modern UI -->
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"
         ></script>
     </head>
@@ -13,6 +14,7 @@
         <div
             class="w-full max-w-2xl bg-white rounded-2xl shadow-xl p-6 md:p-8 space-y-6"
         >
+            <!-- Header -->
             <div
                 class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 border-b border-slate-100 pb-6"
             >
@@ -35,16 +37,24 @@
                 </button>
             </div>
 
-            <div class="space-y-4" id="timezone-containers"></div>
+            <!-- Timezone Cards Container -->
+            <div class="space-y-4" id="timezone-containers">
+                <!-- Cards are dynamically injected here -->
+            </div>
         </div>
 
         <script>
-            // Configuration for the timezones
+            // Configuration for the timezones (Now featuring the West Coast!)
             const timezones = [
                 {
-                    id: "local",
+                    id: "eastcoast",
                     label: "US East Coast (EST/EDT)",
                     zone: "America/New_York",
+                },
+                {
+                    id: "westcoast",
+                    label: "US West Coast (PST/PDT)",
+                    zone: "America/Los_Angeles",
                 },
                 {
                     id: "london",
@@ -118,7 +128,6 @@
                 timezones.forEach((tz) => {
                     const slider = document.getElementById(`slider-${tz.id}`);
 
-                    // Input event triggers continuously while dragging
                     slider.addEventListener("input", (e) => {
                         stopLiveClock();
                         handleSliderChange(tz.zone, parseInt(e.target.value));
@@ -175,11 +184,6 @@
 
             // When a user moves a slider, adjust the global baseDate
             function handleSliderChange(timeZone, targetMinutes) {
-                // Find out what time it currently is in the target timezone
-                const tzTargetStr = baseDate.toLocaleString("en-US", {
-                    timeZone,
-                    hour12: false,
-                });
                 const currentTzMinutes = getMinutesSinceMidnight(
                     baseDate,
                     timeZone,
