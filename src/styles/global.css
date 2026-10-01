@@ -12,14 +12,8 @@
 }
 
 @plugin "daisyui/theme" {
-    name: "corporate";
-    default: true;
-    --color-primary: oklch(0.5498 0.2 265.01);
-}
-
-@plugin "daisyui/theme" {
     name: "business";
-    default: true;
+    prefersdark: true;
     --color-primary: oklch(0.5498 0.2 265.01);
 }
 
@@ -31,12 +25,12 @@ body {
     display: none;
 }
 
-/* When the theme controller IS checked (Dark Mode) */
-:has(.theme-controller:checked) .dark-mode-hide {
+/* Swap the logo when the dark (business) theme is active */
+[data-theme="business"] .dark-mode-hide {
     display: none;
 }
 
-:has(.theme-controller:checked) .dark-mode-show {
+[data-theme="business"] .dark-mode-show {
     display: block;
 }
 

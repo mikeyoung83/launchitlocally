@@ -43,18 +43,16 @@ import Nav from "../components/Nav.astro";
         </ul>
 
         <label
-            aria-label="theme controller"
             for="theme-controller"
-            class="swap swap-rotate btn btn-ghost btn-circle"
+            class="swap swap-rotate btn btn-ghost btn-circle has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2"
         >
-            <span class="sr-only">Toggle Site Theme</span>
+            <span class="sr-only">Toggle dark mode</span>
             <input
                 id="theme-controller"
                 name="theme-controller"
                 type="checkbox"
-                class="theme-controller peer hidden"
-                value="dark"
-                aria-label="theme toggle"
+                class="theme-controller"
+                value="business"
             />
 
             <svg
@@ -108,37 +106,24 @@ import Nav from "../components/Nav.astro";
     </div>
 
     <script>
-        const currentPath = window.location.pathname;
-        const navLinks = document.querySelectorAll(".navbar a");
-
-        navLinks.forEach((link) => {
-            const href = link.getAttribute("href");
-            if (!href) return;
-
-            if (
-                href === currentPath ||
-                (href !== "/" && currentPath.startsWith(href))
-            ) {
-                link.classList.add("active");
-                link.classList.add("text-primary", "font-bold");
-            }
-        });
-
         const themeToggle = document.querySelector(
             ".theme-controller",
         ) as HTMLInputElement;
-        const currentTheme =
-            document.documentElement.getAttribute("data-theme");
-
-        if (themeToggle && currentTheme === "business") {
-            themeToggle.checked = true;
+        // MainLayout's inline script has already applied the saved theme;
+        // reflect it in the toggle.
+        if (themeToggle) {
+            themeToggle.checked =
+                document.documentElement.getAttribute("data-theme") ===
+                "business";
         }
 
         themeToggle?.addEventListener("change", (e) => {
             const target = e.target as HTMLInputElement;
             const newTheme = target.checked ? "business" : "corporate";
             document.documentElement.setAttribute("data-theme", newTheme);
-            localStorage.setItem("theme", newTheme);
+            try {
+                localStorage.setItem("theme", newTheme);
+            } catch {}
         });
     </script>
 </div>

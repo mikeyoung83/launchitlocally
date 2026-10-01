@@ -25,3 +25,8 @@ content:
       - name: publishDate
         label: Publish Date
         type: date
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          format: markdown

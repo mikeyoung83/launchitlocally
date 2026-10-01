@@ -21,7 +21,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
 
 <MainLayout
     title="Portfolio"
-    description="Custom-coded, high-performance websites for local businesses. No bloat, just speed."
+    description="See recent custom-coded websites we've built for local businesses: modern design, clean code and fast load times that help them win more customers."
 >
     <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
         <div
@@ -75,7 +75,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                         <div class="max-w-xl">
                             <div class="mt-4 flex items-center gap-x-4 text-xs">
                                 <time
-                                    datetime={project.data.publishDate.toLocaleDateString()}
+                                    datetime={project.data.publishDate.toISOString().slice(0, 10)}
                                 >
                                     {dateFormatter.format(
                                         project.data.publishDate,

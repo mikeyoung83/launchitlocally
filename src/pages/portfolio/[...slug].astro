@@ -32,7 +32,10 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
 });
 ---
 
-<MainLayout title={`${entry.data.title} | Portfolio`}>
+<MainLayout
+    title={`${entry.data.title} | Portfolio`}
+    description={entry.data.description}
+>
     <div class="bg-base-100 px-6 py-32 lg:px-8">
         <div class="mx-auto max-w-4xl text-base/7">
             <p class="text-base/7 font-bold text-primary uppercase">
@@ -62,6 +65,9 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
                 <p>
                     {entry.data.description}
                 </p>
+                <div class="mt-10 space-y-6">
+                    <Content />
+                </div>
             </div>
             <div class="mt-20">
                 <a href="/portfolio" class="btn btn-outline"

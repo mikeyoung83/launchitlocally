@@ -4,7 +4,7 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout
     title="Pricing"
-    description="Custom-coded, high-performance websites for local businesses. No bloat, just speed."
+    description="Simple website pricing: a custom-coded site for a one-time $4,500 plus hosting, or $0 down at $199/month with hosting, unlimited edits and updates."
 >
     <section class="relative isolate px-6 py-24 sm:py-32 lg:px-8">
         <div
@@ -34,9 +34,9 @@ import MainLayout from "../layouts/MainLayout.astro";
             class="mx-auto mt-16 grid max-w-lg grid-cols-1 items-center gap-y-6 sm:mt-20 sm:gap-y-0 lg:max-w-4xl lg:grid-cols-2"
         >
             <div
-                class="rounded-3xl bg-secondary/10 rounded-t-3xl p-8 ring-1 ring-gray-900/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl"
+                class="rounded-3xl bg-secondary/10 rounded-t-3xl p-8 ring-1 ring-base-content/10 sm:mx-8 sm:rounded-b-none sm:p-10 lg:mx-0 lg:rounded-tr-none lg:rounded-bl-3xl"
             >
-                <h3 id="tier-hobby" class="font-semibold">Lump Sum</h3>
+                <h2 id="tier-hobby" class="font-semibold">Lump Sum</h2>
                 <p class="mt-4 flex items-baseline gap-x-2">
                     <span class="text-5xl font-semibold tracking-tight"
                         >$4,500</span
@@ -95,35 +95,35 @@ import MainLayout from "../layouts/MainLayout.astro";
                     </li>
                 </ul>
                 <a
-                    href="contact"
+                    href="/contact"
                     aria-describedby="tier-hobby"
                     class="btn btn-outline btn-primary w-full mt-8"
                     >Get started today</a
                 >
             </div>
             <div
-                class="relative bg-primary rounded-3xl p-8 ring-1 shadow-2xl ring-gray-900/10 sm:p-10"
+                class="relative bg-primary rounded-3xl p-8 ring-1 shadow-2xl ring-base-content/10 sm:p-10"
             >
-                <h3
+                <h2
                     id="tier-enterprise"
-                    class="text-info-content font-semibold"
+                    class="text-primary-content font-semibold"
                 >
                     Monthly
-                </h3>
+                </h2>
                 <p class="mt-4 flex items-baseline gap-x-2">
                     <span
-                        class="text-5xl font-semibold tracking-tight text-info-content"
+                        class="text-5xl font-semibold tracking-tight text-primary-content"
                         >$199</span
                     >
-                    <span class="text-info-content">/month</span>
+                    <span class="text-primary-content">/month</span>
                 </p>
-                <p class="mt-6 text-info-content">
+                <p class="mt-6 text-primary-content">
                     Get a premium, managed website with zero upfront costs and
                     unlimited updates.
                 </p>
                 <ul
                     role="list"
-                    class="mt-8 space-y-3 text-sm/6 sm:mt-10 text-info-content"
+                    class="mt-8 space-y-3 text-sm/6 sm:mt-10 text-primary-content"
                 >
                     <li class="flex gap-x-3">
                         <svg
@@ -202,7 +202,7 @@ import MainLayout from "../layouts/MainLayout.astro";
                     </li>
                 </ul>
                 <a
-                    href="contact"
+                    href="/contact"
                     aria-describedby="tier-enterprise"
                     class="btn btn-success w-full mt-8">Get started today</a
                 >
