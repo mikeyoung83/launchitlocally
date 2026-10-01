@@ -4,17 +4,27 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "astro check && eslint . && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint .",
+    "typecheck": "astro check"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/vite": "^4.2.1",
-    "astro": "^5.17.1",
+    "astro": "^6.4.8",
+    "astro-seo": "^1.2.0",
     "reading-time": "^1.5.0",
     "tailwindcss": "^4.2.1"
   },
   "devDependencies": {
-    "daisyui": "^5.5.19"
+    "@astrojs/check": "^0.9.10",
+    "@typescript-eslint/parser": "^8.71.0",
+    "daisyui": "^5.5.19",
+    "eslint": "^10.11.0",
+    "eslint-plugin-astro": "^3.2.1",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "typescript": "^6.0.3"
   }
 }

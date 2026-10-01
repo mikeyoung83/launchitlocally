@@ -1,5 +1,5 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import readingTime from "reading-time";
 import { Image } from "astro:assets";
@@ -8,7 +8,7 @@ import { Image } from "astro:assets";
 export async function getStaticPaths() {
     const portfolioEntries = await getCollection("portfolio");
     return portfolioEntries.map((entry: CollectionEntry<"portfolio">) => ({
-        params: { slug: entry.slug },
+        params: { slug: entry.id },
         props: { entry },
     }));
 }
@@ -22,7 +22,7 @@ interface Props {
 const { entry } = Astro.props;
 
 // 4. Render Content
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 
 // 5. Logic for Reading Time and Dates
 const stats = readingTime(entry.body || "");
