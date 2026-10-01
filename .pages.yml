@@ -25,6 +25,13 @@ content:
       - name: publishDate
         label: Publish Date
         type: date
+      - name: url
+        label: Project URL
+        type: string
+        description: Link to the live site, e.g. https://example.com (optional)
+        pattern:
+          regex: "^(https?://\\S+)?$"
+          message: "Use a full URL starting with https://"
       - name: body
         label: Body
         type: rich-text

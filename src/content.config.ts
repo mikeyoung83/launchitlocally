@@ -16,6 +16,8 @@ const portfolio = defineCollection({
       image: image(),
       tags: z.array(z.string()).default([]),
       publishDate: z.coerce.date(),
+      // Live site link. Optional, and Pages CMS saves an empty field as "".
+      url: z.url({ protocol: /^https?$/ }).optional().or(z.literal('')),
     }),
 });
 

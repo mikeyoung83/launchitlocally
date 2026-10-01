@@ -1,7 +1,6 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
-import readingTime from "reading-time";
 import { Image } from "astro:assets";
 
 // 1. Generate paths for all entries
@@ -24,12 +23,15 @@ const { entry } = Astro.props;
 // 4. Render Content
 const { Content } = await render(entry);
 
-// 5. Logic for Reading Time and Dates
-const stats = readingTime(entry.body || "");
+// 5. Dates and the optional live-site link
 const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
 });
+const projectUrl = entry.data.url || undefined;
+const projectHost = projectUrl
+    ? new URL(projectUrl).hostname.replace(/^www\./, "")
+    : undefined;
 ---
 
 <MainLayout
@@ -39,9 +41,9 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
     <div class="bg-base-100 px-6 py-32 lg:px-8">
         <div class="mx-auto max-w-4xl text-base/7">
             <p class="text-base/7 font-bold text-primary uppercase">
-                {formattedDate}
-                <span class="text-sm font-medium italic mt-4"
-                    >| {stats.text}</span
+                <time
+                    datetime={entry.data.publishDate.toISOString().slice(0, 10)}
+                    >{formattedDate}</time
                 >
             </p>
             <h1
@@ -53,6 +55,34 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
             <p class="mt-6 text-xl/8">
                 {entry.data.intro}
             </p>
+            {
+                projectUrl && (
+                    <a
+                        href={projectUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="btn btn-primary mt-8"
+                    >
+                        Visit {projectHost}
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            class="size-4"
+                            aria-hidden="true"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                            />
+                        </svg>
+                        <span class="sr-only">(opens in a new tab)</span>
+                    </a>
+                )
+            }
             <div class="mt-10 max-w-4xl">
                 <figure class="mt-16 mb-16">
                     <Image
