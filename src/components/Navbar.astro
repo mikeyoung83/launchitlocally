@@ -17,17 +17,20 @@ import Nav from "../components/Nav.astro";
         </a>
     </div>
     <div class="flex-none md:hidden">
-        <label
-            for="my-drawer-2"
-            aria-label="open sidebar"
+        <button
+            type="button"
+            id="mobile-menu-button"
             class="btn btn-square btn-ghost"
+            aria-controls="mobile-menu"
+            aria-expanded="false"
         >
-            <span class="sr-only">Sidebar icon</span>
+            <span class="sr-only" data-menu-label>Open menu</span>
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
                 class="inline-block h-6 w-6 stroke-current"
+                aria-hidden="true"
             >
                 <path
                     stroke-linecap="round"
@@ -35,12 +38,14 @@ import Nav from "../components/Nav.astro";
                     stroke-width="2"
                     d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
-        </label>
+        </button>
     </div>
     <div class="flex-none flex items-center gap-4">
-        <ul class="menu menu-horizontal px-1 font-medium hidden md:flex">
-            <Nav />
-        </ul>
+        <nav aria-label="Main" class="hidden md:block">
+            <ul class="menu menu-horizontal px-1 font-medium">
+                <Nav />
+            </ul>
+        </nav>
 
         <label
             for="theme-controller"
@@ -79,26 +84,29 @@ import Nav from "../components/Nav.astro";
 </div>
 
 <div class="drawer">
-    <label for="my-drawer-2" class="sr-only">Toggle navigation drawer</label>
-
+    <!-- daisyUI's drawer state. Driven by #mobile-menu-button, so it's kept
+         out of the tab order and hidden from screen readers. -->
     <input
-        id="my-drawer-2"
+        id="mobile-drawer"
         type="checkbox"
         class="drawer-toggle"
-        aria-label="Toggle navigation drawer"
+        tabindex="-1"
+        aria-hidden="true"
     />
 
     <div class="drawer-side">
         <button
             type="button"
             class="drawer-overlay"
-            aria-label="close sidebar"
-            onclick="document.getElementById('my-drawer-2').click()"
-        >
-            <span class="sr-only">Close navigation menu</span>
-        </button>
+            tabindex="-1"
+            aria-hidden="true"
+            data-menu-close></button>
 
-        <nav class="menu bg-base-200 min-h-full w-80 p-4 pt-30">
+        <nav
+            id="mobile-menu"
+            aria-label="Mobile"
+            class="menu bg-base-200 min-h-full w-80 p-4 pt-30"
+        >
             <ul class="text-2xl">
                 <Nav />
             </ul>
@@ -106,6 +114,50 @@ import Nav from "../components/Nav.astro";
     </div>
 
     <script>
+        const drawer = document.getElementById(
+            "mobile-drawer",
+        ) as HTMLInputElement | null;
+        const menuButton = document.getElementById("mobile-menu-button");
+        const menu = document.getElementById("mobile-menu");
+        const menuLabel = menuButton?.querySelector("[data-menu-label]");
+
+        // daisyUI fades the drawer in after a short delay, and a link can't
+        // take focus while it's still visibility: hidden, so retry each
+        // frame (~0.5s max) until it sticks.
+        function focusWhenVisible(el: HTMLElement, tries = 30) {
+            if (!drawer?.checked) return;
+            el.focus();
+            if (document.activeElement !== el && tries > 0) {
+                requestAnimationFrame(() => focusWhenVisible(el, tries - 1));
+            }
+        }
+
+        function setMenuOpen(open: boolean, { restoreFocus = true } = {}) {
+            if (!drawer || !menuButton) return;
+            drawer.checked = open;
+            menuButton.setAttribute("aria-expanded", String(open));
+            if (menuLabel) menuLabel.textContent = open ? "Close menu" : "Open menu";
+            const firstLink = menu?.querySelector("a");
+            if (open && firstLink) {
+                focusWhenVisible(firstLink);
+            } else if (!open && restoreFocus) {
+                menuButton.focus();
+            }
+        }
+
+        menuButton?.addEventListener("click", () => setMenuOpen(!drawer?.checked));
+        document
+            .querySelector("[data-menu-close]")
+            ?.addEventListener("click", () => setMenuOpen(false));
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && drawer?.checked) setMenuOpen(false);
+        });
+        // Close the drawer if the window grows past the mobile breakpoint
+        // while it's open (the hamburger button is hidden from md up).
+        matchMedia("(min-width: 48rem)").addEventListener("change", (e) => {
+            if (e.matches && drawer?.checked) setMenuOpen(false, { restoreFocus: false });
+        });
+
         const themeToggle = document.querySelector(
             ".theme-controller",
         ) as HTMLInputElement;

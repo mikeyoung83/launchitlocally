@@ -1,43 +1,68 @@
-# Astro Starter Kit: Minimal
+# LaunchItLocally
+
+Marketing site for [LaunchItLocally](https://launchitlocally.com): custom-coded,
+high-performance websites for local businesses.
+
+Built with **Astro 6** (static output), **Tailwind CSS 4** and **daisyUI 5**,
+deployed to **Netlify**. Design and content decisions live in
+[`STYLE-GUIDE.md`](STYLE-GUIDE.md).
+
+## Getting started
+
+Requires Node 22.
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+The dev server runs at http://localhost:4321 (Astro picks the next free port
+if that one's taken).
 
-## 🚀 Project Structure
+## Commands
 
-Inside of your Astro project, you'll see the following folders and files:
+| Command | What it does |
+| :-- | :-- |
+| `npm run dev` | Start the local dev server |
+| `npm run build` | Type check (`astro check`), lint (`eslint .`), then build to `dist/`. This is exactly what Netlify runs, so run it before pushing |
+| `npm run lint` | Just the accessibility/lint check |
+| `npm run typecheck` | Just the `astro check` type check |
+| `npm run preview` | Serve the production build from `dist/` locally |
+
+The build fails on type errors and accessibility problems (for example an
+image with no `alt`). Fix the cause rather than disabling the rule.
+
+## Project structure
 
 ```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+src/
+├── assets/            Images (optimised by astro:assets)
+│   └── portfolio/     Portfolio screenshots, uploaded via Pages CMS
+├── components/        Navbar, Nav (shared nav links), Footer, logos
+├── content/portfolio/ Portfolio entries (Markdown)
+├── content.config.ts  Content collection schema
+├── layouts/
+│   └── MainLayout.astro  Page shell: SEO tags, theme, navbar, footer
+├── pages/             One file per route
+└── styles/global.css  Tailwind + daisyUI config and theme colours
+public/                Served as-is (favicons, robots.txt)
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+- **Nav links** are in `src/components/Nav.astro`. They're used in the desktop navbar, the mobile menu and the footer.
+- **SEO**: every page passes a unique `title` and `description` to `MainLayout`, which renders them with `astro-seo`. The sitemap is generated at build time.
+- **Theme**: `corporate` (light) and `business` (dark) daisyUI themes. Colour values are contrast-checked, so see `STYLE-GUIDE.md` §2 before changing them.
+- **Contact form**: Netlify Forms. Submissions show up in the Netlify dashboard under *Forms*.
+- **`/timezone`** is a standalone personal tool, separate from the marketing site.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Editing the portfolio
 
-Any static assets, like images, can be placed in the `public/` directory.
+Portfolio entries are editable through [Pages CMS](https://pagescms.org)
+(config in `.pages.yml`). Saving there commits to `master`, which triggers a
+deploy. If you add a field, update both `.pages.yml` and
+`src/content.config.ts`.
 
-## 🧞 Commands
+## Deploying
 
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+`master` deploys to production automatically on Netlify. For bigger
+changes, work on a branch and open a pull request. Netlify posts a deploy
+preview link on the PR so you can check it before merging.

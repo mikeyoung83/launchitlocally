@@ -43,6 +43,4 @@ Copy is written by Mike and is final — fix typos/grammar only, don't rewrite.
 
 ## Status
 Shipped and live. Upgraded to Astro 6 + astro-seo/sitemap/build checks on
-2026-09-30. Open items: Portfolio
-not in nav until real entries exist, mobile-menu hamburger isn't
-keyboard-operable, README is still Astro starter boilerplate.
+2026-09-30. Open items: Portfolio not in nav until real entries exist.
