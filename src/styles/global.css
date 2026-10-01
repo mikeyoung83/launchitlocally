@@ -5,16 +5,23 @@
         business --prefersdark;
 }
 
+/* Stock daisyUI themes with the logo blue as primary. Lightness values are
+   tuned so every text/background pair the site uses meets WCAG AA (4.5:1);
+   see STYLE-GUIDE.md section 2 before changing any of them. */
 @plugin "daisyui/theme" {
     name: "corporate";
     default: true;
-    --color-primary: oklch(0.5498 0.2 265.01);
+    --color-primary: oklch(52% 0.2 265.01);
+    --color-accent: oklch(50% 0.118 184.704);
+    --color-success-content: oklch(20% 0.03 149.214);
 }
 
 @plugin "daisyui/theme" {
     name: "business";
     prefersdark: true;
-    --color-primary: oklch(0.5498 0.2 265.01);
+    --color-primary: oklch(70% 0.15 265.01);
+    --color-primary-content: oklch(18% 0.04 265.01);
+    --color-accent: oklch(70% 0.167 35.791);
 }
 
 body {

@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Local Netlify folder
 .netlify
+
+# Local visual reference screenshots (see STYLE-GUIDE.md section 7)
+inspiration/
