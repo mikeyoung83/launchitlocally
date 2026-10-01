@@ -6,18 +6,39 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+// Pages CMS may save a blank optional field as "" or null rather than
+// leaving it out; normalise all three to undefined.
+const optionalText = z
+  .string()
+  .nullish()
+  .transform((v) => v?.trim() || undefined);
+
 const portfolio = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/portfolio' }),
   schema: ({ image }) =>
     z.object({
       title: z.string(),
+      // Shown under the title and used as the page's meta description.
       intro: z.string(),
-      description: z.string(),
-      image: image(),
-      tags: z.array(z.string()).default([]),
       publishDate: z.coerce.date(),
-      // Live site link. Optional, and Pages CMS saves an empty field as "".
-      url: z.url({ protocol: /^https?$/ }).optional().or(z.literal('')),
+      // Live site link.
+      url: z
+        .union([z.url({ protocol: /^https?$/ }), z.literal('')])
+        .nullish()
+        .transform((v) => v || undefined),
+      image: image(),
+      imageAlt: optionalText,
+      tags: z.array(z.string()).default([]),
+      gallery: z
+        .array(
+          z.object({
+            image: image(),
+            alt: z.string().min(1),
+            caption: optionalText,
+          }),
+        )
+        .nullish()
+        .transform((v) => v ?? []),
     }),
 });
 

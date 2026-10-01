@@ -7,24 +7,22 @@ content:
     path: src/content/portfolio
     filename: "{fields.title}.md"
     type: collection
+    # Field order matches the project page, top to bottom. Keep in sync with
+    # the portfolio schema in src/content.config.ts.
     fields:
-      - name: title
-        label: Title
-        type: string
-      - name: intro
-        label: Intro
-        type: string
-      - name: description
-        label: Description
-        type: string
-      - name: image
-        label: Image
-        type: image # This MUST be 'image'
-        config:
-          multiple: false
       - name: publishDate
         label: Publish Date
         type: date
+        required: true
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: intro
+        label: Intro
+        type: text
+        required: true
+        description: One or two sentences. Also used as the page's search-result description, so aim for under 160 characters.
       - name: url
         label: Project URL
         type: string
@@ -32,8 +30,37 @@ content:
         pattern:
           regex: "^(https?://\\S+)?$"
           message: "Use a full URL starting with https://"
+      - name: image
+        label: Main Image
+        type: image
+        required: true
+      - name: imageAlt
+        label: Main Image Alt Text
+        type: string
+        description: Describe the image for screen readers, e.g. "Homepage of a bakery site on a laptop". Leave blank to use the project title.
       - name: body
         label: Body
         type: rich-text
         options:
           format: markdown
+      - name: gallery
+        label: Supplementary Images
+        type: object
+        list:
+          collapsible:
+            collapsed: true
+            summary: "{index}. {fields.alt}"
+        fields:
+          - name: image
+            label: Image
+            type: image
+            required: true
+          - name: alt
+            label: Alt Text
+            type: string
+            required: true
+            description: Describe what the image shows, for screen readers and search engines.
+          - name: caption
+            label: Caption
+            type: text
+            description: Optional. Shown under the image.

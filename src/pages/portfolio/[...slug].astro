@@ -28,18 +28,19 @@ const formattedDate = entry.data.publishDate.toLocaleDateString("en-US", {
     year: "numeric",
     month: "long",
 });
-const projectUrl = entry.data.url || undefined;
+const projectUrl = entry.data.url;
 const projectHost = projectUrl
     ? new URL(projectUrl).hostname.replace(/^www\./, "")
     : undefined;
+const mainImageAlt = entry.data.imageAlt ?? entry.data.title;
 ---
 
 <MainLayout
     title={`${entry.data.title} | Portfolio`}
-    description={entry.data.description}
+    description={entry.data.intro}
 >
     <div class="bg-base-100 px-6 py-32 lg:px-8">
-        <div class="mx-auto max-w-4xl text-base/7">
+        <article class="mx-auto max-w-4xl text-base/7">
             <p class="text-base/7 font-bold text-primary uppercase">
                 <time
                     datetime={entry.data.publishDate.toISOString().slice(0, 10)}
@@ -83,27 +84,46 @@ const projectHost = projectUrl
                     </a>
                 )
             }
-            <div class="mt-10 max-w-4xl">
-                <figure class="mt-16 mb-16">
-                    <Image
-                        src={entry.data.image}
-                        alt={entry.data.title}
-                        class="w-full object-cover rounded-3xl shadow-xl"
-                    />
-                </figure>
 
-                <p>
-                    {entry.data.description}
-                </p>
-                <div class="mt-10 space-y-6">
-                    <Content />
-                </div>
+            <figure class="my-16">
+                <Image
+                    src={entry.data.image}
+                    alt={mainImageAlt}
+                    loading="eager"
+                    class="w-full object-cover rounded-3xl shadow-xl"
+                />
+            </figure>
+
+            <div class="prose max-w-none">
+                <Content />
             </div>
+
+            {
+                entry.data.gallery.length > 0 && (
+                    <div class="mt-16 space-y-16">
+                        {entry.data.gallery.map((item) => (
+                            <figure>
+                                <Image
+                                    src={item.image}
+                                    alt={item.alt}
+                                    class="w-full object-cover rounded-3xl shadow-xl"
+                                />
+                                {item.caption && (
+                                    <figcaption class="mt-4 text-sm/6 text-base-content/70">
+                                        {item.caption}
+                                    </figcaption>
+                                )}
+                            </figure>
+                        ))}
+                    </div>
+                )
+            }
+
             <div class="mt-20">
                 <a href="/portfolio" class="btn btn-outline"
                     >← Back to Projects</a
                 >
             </div>
-        </div>
+        </article>
     </div>
 </MainLayout>

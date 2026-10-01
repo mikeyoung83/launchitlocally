@@ -158,7 +158,7 @@ the mobile drawer (4.70) and light-mode `accent` on `bg-secondary/10` (4.77).
 
 | Section | What's editable | Content type |
 |---|---|---|
-| Portfolio | title, intro, description, image, publish date, body (markdown) | collection — `src/content/portfolio`, schema in `src/content.config.ts`, CMS config in `.pages.yml` (keep the two in sync by hand) |
+| Portfolio | publish date, title, intro (also the meta description), project URL (optional), main image + optional alt text, body (markdown, styled with the typography plugin's `prose`), supplementary images (optional list: image + required alt text + optional caption) | collection — `src/content/portfolio`, schema in `src/content.config.ts`, CMS config in `.pages.yml` (keep the two in sync by hand) |
 
 ---
 

@@ -65,7 +65,7 @@ const dateFormatter = new Intl.DateTimeFormat("en-US", {
                                             loading="eager"
                                             fetchpriority="high"
                                             src={project.data.image}
-                                            alt={project.data.title}
+                                            alt={project.data.imageAlt ?? project.data.title}
                                             class="transition duration-300 ease-in-out hover:scale-110 aspect-video w-full  object-cover sm:aspect-2/1 lg:aspect-3/2"
                                         />
                                     </div>
